@@ -1,9 +1,11 @@
 AuthRegisterCtrl.$inject = ['$auth', '$state'];
 
-function AuthRegisterCtrl(){
+function AuthRegisterCtrl($auth, $state){
+  this.user = {};
 
   function handleSubmit(){
-    console.log('REGISTER');
+    $auth.signup(this.user)
+      .then(() => $state.go('login'));
   }
 
   this.handleSubmit = handleSubmit;

@@ -1,6 +1,12 @@
 import angular from 'angular';
-import '@uirouter/angularjs';
+
+// Config
 import Router from './config/router';
+import Auth from './config/auth';
+
+// Dependencies
+import '@uirouter/angularjs';
+import 'satellizer';
 
 // Controllers
 import MainCtrl from './controllers/main';
@@ -11,11 +17,13 @@ import AuthLoginCtrl from './controllers/auth/login';
 import 'bulma';
 import './assets/scss/style.scss';
 
+
 import googleMap from './directives/google-map';
 
-angular
-  .module('crave',['ui.router'])
+
+angular.module('crave',['ui.router', 'satellizer'])
   .config(Router)
+  .config(Auth)
   .controller('MainCtrl', MainCtrl)
   .controller('AuthRegisterCtrl', AuthRegisterCtrl)
   .controller('AuthLoginCtrl', AuthLoginCtrl)

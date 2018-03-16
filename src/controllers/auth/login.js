@@ -1,12 +1,19 @@
 AuthLoginCtrl.$inject = ['$auth', '$state', '$rootScope'];
 
-function AuthLoginCtrl(){
+function AuthLoginCtrl($auth, $state){
+  this.credentials = {};
+
+  function authenticate(provider) {
+    $auth.authenticate(provider);
+  }
 
   function handleSubmit(){
-    console.log('LOGIN BUTTON');
+    $auth.login(this.credentials)
+      .then($state.go('craveIndex'));
   }
 
   this.handleSubmit = handleSubmit;
+  this.authenticate = authenticate;
 }
 
 export default AuthLoginCtrl;
