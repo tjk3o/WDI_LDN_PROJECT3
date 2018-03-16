@@ -1,0 +1,25 @@
+<section class="section">
+  <div class="container">
+    <h1>Register</h1>
+    <form ng-submit="authRegister.handleSubmit()">
+      <div class="field">
+        <label for="username">Username</label>
+        <input class="input" placeholder="Email" name="username" ng-model="authRegister.user.username" />
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input class="input" placeholder="Email" name="email" ng-model="authRegister.user.email" />
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" class="input" placeholder="Password" name="password" ng-model="authRegister.user.password" />
+      </div>
+      <div class="field">
+        <label for="passwordConfirmation">Password Confirmation</label>
+        <input type="password" class="input" placeholder="Password Confirmation" name="passwordConfirmation" ng-model="authRegister.user.passwordConfirmation" />
+      </div>
+
+      <button class="button is-primary">Submit</button>
+    </form>
+  </div>
+</section>
