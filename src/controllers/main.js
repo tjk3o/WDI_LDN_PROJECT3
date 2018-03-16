@@ -1,5 +1,13 @@
-function MainCtrl() {
-  console.log('MainCtrl loaded');
+MainCtrl.$inject = ['$auth', '$state'];
+
+function MainCtrl($auth, $state) {
+  this.isAuthenticated = $auth.isAuthenticated;
+
+  function logout(){
+    $auth.logout();
+    $state.go('placesIndex');
+  }
+  this.logout = logout;
 }
 
 export default MainCtrl;

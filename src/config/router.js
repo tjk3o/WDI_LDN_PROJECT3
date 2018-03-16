@@ -12,12 +12,12 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: 'views/crave/index.html',
       controller: 'MainCtrl as MainCtrl'
     })
-    .state('authRegister', {
+    .state('register', {
       url: '/register',
       templateUrl: 'views/auth/register.html',
       controller: 'AuthRegisterCtrl as authRegister'
     })
-    .state('authLogin', {
+    .state('login', {
       url: '/login',
       templateUrl: 'views/auth/login.html',
       controller: 'AuthLoginCtrl as authLogin'

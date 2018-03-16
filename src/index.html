@@ -10,9 +10,9 @@
     <h1>NAV</h1>
     <a ui-sref="craveHome">HOME</a>
     <a ui-sref="craveIndex">INDEX</a>
-    <a ui-sref="craveRegister">REGISTER</a>
-    <a ui-sref="craveLogin">LOGIN</a>
-
+    <a ui-sref="register">REGISTER</a>
+    <a ui-sref="login">LOGIN</a>
+    <a class="navbar-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a>
   </nav>
 
   <ui-view></ui-view>

@@ -17,8 +17,7 @@ import AuthLoginCtrl from './controllers/auth/login';
 import 'bulma';
 import './assets/scss/style.scss';
 
-angular
-  .module('crave',['ui.router', 'satellizer'])
+angular.module('crave',['ui.router', 'satellizer'])
   .config(Router)
   .config(Auth)
   .controller('MainCtrl', MainCtrl)
