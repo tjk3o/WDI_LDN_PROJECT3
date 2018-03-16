@@ -12,15 +12,15 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: 'views/crave/index.html',
       controller: 'MainCtrl as MainCtrl'
     })
-    .state('craveRegister', {
+    .state('authRegister', {
       url: '/register',
       templateUrl: 'views/auth/register.html',
-      controller: 'MainCtrl as MainCtrl'
+      controller: 'AuthRegisterCtrl as authRegister'
     })
-    .state('craveLogin', {
+    .state('authLogin', {
       url: '/login',
       templateUrl: 'views/auth/login.html',
-      controller: 'MainCtrl as MainCtrl'
+      controller: 'AuthLoginCtrl as authLogin'
     });
 
   $urlRouterProvider.otherwise('/');
