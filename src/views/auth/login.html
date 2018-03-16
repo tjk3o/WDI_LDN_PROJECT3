@@ -1,0 +1,17 @@
+<section>
+  <div class="container">
+    <h1>Login</h1>
+    <form ng-submit="authLogin.handleSubmit()">
+      <div class="field">
+        <label for="email">Email</label>
+        <input class="input" placeholder="Email" name="email" ng-model="authLogin.credentials.email" />
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" class="input" placeholder="Password" name="password" ng-model="authLogin.credentials.password" />
+      </div>
+
+      <button class="button is-primary">Submit</button>
+    </form>
+  </div>
+</section>

@@ -1,12 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="crave">
 <head>
   <meta charset="utf-8">
   <title>WDI32 Group Project</title>
 </head>
-<body>
+<body  ng-controller="MainCtrl as main">
 
-  <h1>WDI32 Group Project</h1>
+  <nav>
+    <h1>NAV</h1>
+    <a ui-sref="craveHome">HOME</a>
+    <a ui-sref="craveIndex">INDEX</a>
+    <a ui-sref="craveRegister">REGISTER</a>
+    <a ui-sref="craveLogin">LOGIN</a>
+
+  </nav>
+
+  <ui-view></ui-view>
 
 </body>
 </html>
