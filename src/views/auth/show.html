@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>PROFILE PAGE</h1>
+  <h3>This is where you see your profile information</h3>
+
+  <h1>We're looking for this: {{ authShow.name }}</h1>
+
+  <form ng-submit="authShow.handleSubmit()">
+  <div class="field">
+    <label for="email">Email</label>
+    <input class="input" placeholder="Email" name="email" ng-model="placesEdit.place.name" />
+  </div>
+  <div class="field">
+    <label for="password">Password</label>
+    <input class="input" placeholder="Password" name="password" ng-model="placesEdit.place.name" />
+  </div>
+
+  <button class="button is-primary">Submit</button>
+</form>
+
+</div>

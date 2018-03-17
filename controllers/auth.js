@@ -29,7 +29,14 @@ function login(req,res,next){
     .catch(next);
 }
 
+function show(req, res, next) {
+  User.findById(req.body._id)
+    .then(console.log(`This is the user id ${req.body._id}`))
+    .catch(next);
+}
+
 module.exports = {
   register,
-  login
+  login,
+  show
 };

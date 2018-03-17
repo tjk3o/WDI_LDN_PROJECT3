@@ -4,6 +4,8 @@ const auth = require('../controllers/auth');
 router.post('/register', auth.register);
 router.post('/login', auth.login);
 
+router.get('/user/:id', auth.show);
+
 router.route('/*')
   .all((req, res) => res.status(404).json({ message: 'Not found' }));
 

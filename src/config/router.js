@@ -30,10 +30,16 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: 'views/auth/login.html',
       controller: 'AuthLoginCtrl as authLogin'
     })
-    .state('craveProfile', {
+    .state('authShow', {
       url: '/profile',
+      templateUrl: 'views/auth/show.html',
+      controller: 'UserShowCtrl as authShow',
+      resolve: { secureState }
+    })
+    .state('userEdit', {
+      url: '/profile/:id/edit',
       templateUrl: 'views/crave/profile.html',
-      controller: 'MainCtrl as MainCtrl',
+      controller: 'UserEditCtrl as userEdit',
       resolve: { secureState }
     });
 
