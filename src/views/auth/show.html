@@ -1,12 +1,12 @@
 <div class="container" ng-controller="UserShowCtrl as profile">
   <h1>PROFILE PAGE</h1>
 
-  <h1>We're looking for this: {{ profile.userId }}</h1>
+  <h3>We're looking for this: {{ profile.userId }}</h3>
 
   <form>
   <div class="field">
     <label for="email">Email</label>
-    <input class="input" placeholder="Email" name="email"/>
+    <input class="input" placeholder="{{ profile.userId.name }}" name="email"/>
   </div>
   <div class="field">
     <label for="password">Password</label>
