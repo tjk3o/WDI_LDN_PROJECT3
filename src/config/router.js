@@ -30,10 +30,10 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: 'views/auth/login.html',
       controller: 'AuthLoginCtrl as authLogin'
     })
-    .state('authShow', {
+    .state('UserShowCtrl', {
       url: '/profile',
       templateUrl: 'views/auth/show.html',
-      controller: 'UserShowCtrl as authShow',
+      controller: 'UserShowCtrl as UserShowCtrl',
       resolve: { secureState }
     })
     .state('userEdit', {

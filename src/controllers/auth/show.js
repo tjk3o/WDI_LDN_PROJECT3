@@ -1,12 +1,11 @@
-UserShowCtrl.$inject = ['User', '$state', '$auth'];
-function UserShowCtrl(User, $auth, $state) {
-  this.user = {};
-  console.log('UserShowCtrl loaded');
-  console.log($auth, $state);
-  const id = $auth.getPayload();
-  console.log(id);
-  User.findById($auth.getPayload().sub)
-    .then(res => this.user = res.data);
+UserShowCtrl.$inject = ['User', '$auth'];
+
+function UserShowCtrl(User, $auth) {
+  const payload = $auth.getPayload();
+  const payloadSub = payload.sub;
+  this.userId = payloadSub;
+  User.findById(payloadSub)
+    .then(res => this.userId = res.data);
 }
 
 export default UserShowCtrl;

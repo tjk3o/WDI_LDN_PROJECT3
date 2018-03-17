@@ -13,7 +13,6 @@ import MainCtrl from './controllers/main';
 import AuthRegisterCtrl from './controllers/auth/register';
 import AuthLoginCtrl from './controllers/auth/login';
 import UserShowCtrl from './controllers/auth/show';
-import UserEditCtrl from './controllers/auth/edit';
 
 // Styling
 import 'bulma';
@@ -34,6 +33,5 @@ angular.module('crave',['ui.router', 'satellizer'])
   .controller('AuthRegisterCtrl', AuthRegisterCtrl)
   .controller('AuthLoginCtrl', AuthLoginCtrl)
   .controller('UserShowCtrl', UserShowCtrl)
-  .controller('UserEditCtrl', UserEditCtrl)
   .directive('googleMap', googleMap)
   .service('User', User);
