@@ -1,21 +1,49 @@
 <!DOCTYPE html>
 <html ng-app="crave">
-<head>
-  <meta charset="utf-8">
-  <title>WDI32 Group Project</title>
-</head>
-<body  ng-controller="MainCtrl as main">
+  <head>
+    <meta charset="utf-8">
+    <title>WDI32 Group Project</title>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Bangers|Cabin+Sketch|Permanent+Marker|Rock+Salt" rel="stylesheet">
+  </head>
+  <body  ng-controller="MainCtrl as main">
+    <section class="hero is-medium">
+       <!-- Hero head: will stick at the top -->
+        <div class="hero-head">
+          <nav class="navbar">
+            <div class="container">
+              <div class="navbar-brand">
+                <a class="navbar-item" ui-sref="craveHome">
+                  <h1 class="logo">CRAVE</h1>
+                </a>
+                <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+              </div>
+              <div id="navbarMenuHeroA" class="navbar-menu">
+                <div class="navbar-end">
+                  <a class="navbar-item" ui-sref="register">REGISTER</a>
+                  <a class="navbar-item" ui-sref="login">LOGIN</a>
+                  <a class="navbar-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">LOGOUT</a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
 
-  <nav>
-    <h1>NAV</h1>
-    <a ui-sref="craveHome">HOME</a>
-    <a ui-sref="craveIndex">INDEX</a>
-    <a ui-sref="register">REGISTER</a>
-    <a ui-sref="login">LOGIN</a>
-    <a class="navbar-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a>
-  </nav>
 
-  <ui-view></ui-view>
+    <ui-view></ui-view>
 
-</body>
+    <!-- Hero footer: will stick at the bottom optional-->
+        <div class="hero-foot">
+          <nav class="tabs">
+            <div class="container">
+              <p>Made by team HOTs</p>
+            </div>
+          </nav>
+        </div>
+      </section>
+
+  </body>
 </html>

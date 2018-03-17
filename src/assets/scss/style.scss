@@ -1,9 +1,21 @@
 body {
+
   nav{
     background-color: #0f0;
   }
   .google-map {
     width: 300px;
     height: 300px;
+
   }
+  
+  .logo{
+    text-align: center;
+  }
+}
+
+h1 {
+  font-family: 'Cabin Sketch', cursive;
+  padding-left: 10px;
+  font-size: 50px;
 }
