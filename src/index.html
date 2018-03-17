@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>WDI32 Group Project</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8C7HRroI6BaALKHa6EHMc_BDYLIB5kUA&libraries=places"></script>
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Bangers|Cabin+Sketch|Permanent+Marker|Rock+Salt" rel="stylesheet">
   </head>
   <body  ng-controller="MainCtrl as main">
@@ -23,8 +24,8 @@
               </div>
               <div id="navbarMenuHeroA" class="navbar-menu">
                 <div class="navbar-end">
-                  <a class="navbar-item" ui-sref="register">REGISTER</a>
-                  <a class="navbar-item" ui-sref="login">LOGIN</a>
+                  <a class="navbar-item" ui-sref="authRegister">REGISTER</a>
+                  <a class="navbar-item" ui-sref="authLogin">LOGIN</a>
                   <a class="navbar-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">LOGOUT</a>
                 </div>
               </div>
@@ -32,18 +33,17 @@
           </nav>
         </div>
 
-
     <ui-view></ui-view>
 
     <!-- Hero footer: will stick at the bottom optional-->
-        <div class="hero-foot">
-          <nav class="tabs">
-            <div class="container">
-              <p>Made by team HOTs</p>
-            </div>
-          </nav>
-        </div>
-      </section>
+      <div class="hero-foot">
+        <nav class="tabs">
+          <div class="container">
+            <p>Made by team HOTs</p>
+          </div>
+        </nav>
+      </div>
+    </section>
 
   </body>
 </html>

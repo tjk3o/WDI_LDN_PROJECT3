@@ -17,9 +17,14 @@ import AuthLoginCtrl from './controllers/auth/login';
 import 'bulma';
 import './assets/scss/style.scss';
 
+
+import googleMap from './directives/google-map';
+
+
 angular.module('crave',['ui.router', 'satellizer'])
   .config(Router)
   .config(Auth)
   .controller('MainCtrl', MainCtrl)
   .controller('AuthRegisterCtrl', AuthRegisterCtrl)
-  .controller('AuthLoginCtrl', AuthLoginCtrl);
+  .controller('AuthLoginCtrl', AuthLoginCtrl)
+  .directive('googleMap', googleMap);
