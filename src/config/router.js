@@ -1,3 +1,11 @@
+secureState.$inject = ['$q', '$state', '$auth'];
+function secureState($q, $state, $auth){
+  return new $q((resolve) => {
+    if($auth.isAuthenticated()) return resolve();
+    $state.go('login');
+  });
+}
+
 Router.$inject = ['$stateProvider', '$urlRouterProvider'];
 function Router($stateProvider, $urlRouterProvider) {
 
@@ -21,6 +29,12 @@ function Router($stateProvider, $urlRouterProvider) {
       url: '/login',
       templateUrl: 'views/auth/login.html',
       controller: 'AuthLoginCtrl as authLogin'
+    })
+    .state('craveProfile', {
+      url: '/profile',
+      templateUrl: 'views/crave/profile.html',
+      controller: 'MainCtrl as MainCtrl',
+      resolve: { secureState }
     });
 
   $urlRouterProvider.otherwise('/');
