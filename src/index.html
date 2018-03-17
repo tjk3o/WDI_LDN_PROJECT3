@@ -13,7 +13,7 @@
     <a ui-sref="craveHome">HOME</a>
     <a ui-sref="craveIndex">INDEX</a>
     <a ui-sref="authRegister">REGISTER</a>
-    <a ui-sref="craveProfile">PROFILE</a>
+    <a ui-sref="craveProfile" ng-if="main.isAuthenticated()">PROFILE</a>
     <a ui-sref="authLogin">LOGIN</a>
     <a class="navbar-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a>
 

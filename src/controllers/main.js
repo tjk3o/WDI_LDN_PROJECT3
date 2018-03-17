@@ -5,7 +5,7 @@ function MainCtrl($auth, $state) {
 
   function logout(){
     $auth.logout();
-    $state.go('placesIndex');
+    $state.go('craveIndex');
   }
   this.logout = logout;
 }

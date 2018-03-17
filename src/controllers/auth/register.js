@@ -5,7 +5,7 @@ function AuthRegisterCtrl($auth, $state){
 
   function handleSubmit(){
     $auth.signup(this.user)
-      .then(() => $state.go('login'));
+      .then(() => $state.go('authLogin'));
   }
 
   this.handleSubmit = handleSubmit;
