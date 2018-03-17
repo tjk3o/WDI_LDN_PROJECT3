@@ -3,3 +3,33 @@
   <h1>HOME</h1>
   <h3>This is the homepage content</h3>
 </div>
+
+
+<h2>Google Map</h2>
+<google-map zoom="10" center="{ lat: 51.6, lng: -0.08 }"></google-map>
+
+<h2>Location Inputs</h2>
+<input id="origin-input" class="controls" type="text"
+    placeholder="Enter an origin location">
+    <input type="hidden" name="lat" />
+    <input type="hidden" name="lng" />
+
+
+
+<input id="destination-input" class="controls" type="text"
+    placeholder="Enter a destination location">
+
+<div id="mode-selector" class="controls">
+  <input type="radio" name="type" id="changemode-walking" checked="checked">
+  <label for="changemode-walking">Walking</label>
+
+  <input type="radio" name="type" id="changemode-transit">
+  <label for="changemode-transit">Transit</label>
+
+  <input type="radio" name="type" id="changemode-driving">
+  <label for="changemode-driving">Driving</label>
+</div>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8C7HRroI6BaALKHa6EHMc_BDYLIB5kUA&libraries=places&callback=initMap"
+    async defer></script>

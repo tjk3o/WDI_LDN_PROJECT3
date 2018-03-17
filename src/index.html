@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>WDI32 Group Project</title>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8C7HRroI6BaALKHa6EHMc_BDYLIB5kUA&libraries=places"></script>
+
 </head>
 <body  ng-controller="MainCtrl as main">
 
@@ -13,6 +15,8 @@
     <a ui-sref="authRegister">REGISTER</a>
     <a ui-sref="craveProfile">PROFILE</a>
     <a ui-sref="authLogin">LOGIN</a>
+    <a class="navbar-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a>
+
   </nav>
 
   <ui-view></ui-view>
