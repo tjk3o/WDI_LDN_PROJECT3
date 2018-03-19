@@ -1,14 +1,10 @@
-UserShowCtrl.$inject = ['User', '$auth', '$http'];
+AuthShowCtrl.$inject = ['User', '$auth'];
 
-function UserShowCtrl(User, $auth, $http) {
+function AuthShowCtrl(User, $auth) {
   const payload = $auth.getPayload();
-  const payloadSub = payload.sub;
-  this.userId = payloadSub;
 
-  User.findById(payloadSub)
-    .then(res => this.userId = res.data);
-  this.id = $http.get(`api/user/${this.userId}`);
-  console.log(this._id);
+  User.findById(payload.sub)
+    .then(res => this.user = res.data);
 }
 
-export default UserShowCtrl;
+export default AuthShowCtrl;

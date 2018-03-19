@@ -1,16 +1,18 @@
-UserEditCtrl.$inject = ['User', '$state'];
-function UserEditCtrl(User, $state) {
+AuthEditCtrl.$inject = ['User', '$state', '$auth'];
+function AuthEditCtrl(User, $state, $auth) {
 
   this.user = {};
-  User.findById($state.params.id)
+  const payload = $auth.getPayload();
+
+  User.findById(payload.sub)
     .then(res => this.user = res.data);
 
   function handleSubmit() {
     User.update(this.user)
-      .then(() => $state.go('craveProfile', { id: $state.params.id }));
+      .then(() => $state.go('authShow'));
   }
 
   this.handleSubmit = handleSubmit;
 }
 
-export default UserEditCtrl;
+export default AuthEditCtrl;

@@ -10,15 +10,9 @@ Router.$inject = ['$stateProvider', '$urlRouterProvider'];
 function Router($stateProvider, $urlRouterProvider) {
 
   $stateProvider
-    .state('craveHome', {
+    .state('home', {
       url: '/',
-      templateUrl: 'views/crave/home.html',
-      controller: 'MainCtrl as MainCtrl'
-    })
-    .state('craveIndex', {
-      url: '/crave',
-      templateUrl: 'views/crave/index.html',
-      controller: 'MainCtrl as MainCtrl'
+      templateUrl: 'views/pages/home.html'
     })
     .state('authRegister', {
       url: '/register',
@@ -30,16 +24,16 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: 'views/auth/login.html',
       controller: 'AuthLoginCtrl as authLogin'
     })
-    .state('UserShowCtrl', {
+    .state('authShow', {
       url: '/profile',
       templateUrl: 'views/auth/show.html',
-      controller: 'UserShowCtrl as UserShowCtrl',
+      controller: 'AuthShowCtrl as authShow',
       resolve: { secureState }
     })
-    .state('userEdit', {
-      url: '/profile/:id/edit',
-      templateUrl: 'views/crave/profile.html',
-      controller: 'UserEditCtrl as userEdit',
+    .state('authEdit', {
+      url: '/profile/edit',
+      templateUrl: 'views/auth/edit.html',
+      controller: 'AuthEditCtrl as authEdit',
       resolve: { secureState }
     });
 

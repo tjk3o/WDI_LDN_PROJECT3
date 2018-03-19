@@ -1,19 +1,6 @@
-<div class="container" ng-controller="UserShowCtrl as profile">
+<div class="container">
   <h1>PROFILE PAGE</h1>
 
-  <h3>We're looking for this: {{ profile.userId }}</h3>
-
-  <form>
-  <div class="field">
-    <label for="email">Email</label>
-    <input class="input" placeholder="{{ profile.userId.name }}" name="email"/>
-  </div>
-  <div class="field">
-    <label for="password">Password</label>
-    <input class="input" placeholder="Password" name="password"/>
-  </div>
-
-  <button class="button is-primary">Submit</button>
-</form>
+  <h3>We're looking for this: {{ authShow.user }}</h3>
 
 </div>
