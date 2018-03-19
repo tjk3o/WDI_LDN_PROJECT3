@@ -6,6 +6,6 @@
 <input type="text" placeholder="Enter a destination location" ng-model="pagesHome.destination">
 
 <form>
-    <button value="WALKING" ng-click="pagesHome.walking()">Walking</button>
-    <button type="button" value="DRIVING" ng-click="pagesHome.driving()">Driving</button>
+    <button value="WALKING" ng-disabled="pagesHome.travelMode" ng-click="pagesHome.walking()">Walking</button>
+    <button value="DRIVING" ng-disabled="pagesHome.travelMode" ng-click="pagesHome.driving()">Driving</button>
 </form>
