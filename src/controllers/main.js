@@ -1,12 +1,19 @@
-MainCtrl.$inject = ['User','$auth', '$state'];
+MainCtrl.$inject = ['$rootScope','User','$auth', '$state', '$timeout'];
 
-function MainCtrl(User,$auth, $state) {
+function MainCtrl($rootScope, User,$auth, $state, $timeout) {
+  this.flashMessage = null;
   this.isAuthenticated = $auth.isAuthenticated;
 
   function logout(){
     $auth.logout();
     $state.go('craveIndex');
   }
+
+  $rootScope.$on('flashMessage', (e, data) => {
+    this.flashMessage = data;
+    $timeout(() => this.flashMessage = null, 2000);
+  });
+
   this.logout = logout;
 }
 
