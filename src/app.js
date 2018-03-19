@@ -22,11 +22,10 @@ import './assets/scss/style.scss';
 
 // Directives
 import googleMap from './directives/google-map';
+import googleAutoComplete from './directives/google-auto-complete';
 
 // Services
 import User from './services/user';
-import Directions from './services/directions';
-import googleAutoComplete from './directives/google-auto-complete';
 
 
 
@@ -41,5 +40,4 @@ angular.module('crave',['ui.router', 'satellizer'])
   .controller('AuthEditCtrl', AuthEditCtrl)
   .directive('googleMap', googleMap)
   .directive('googleAutoComplete', googleAutoComplete)
-  .service('User', User)
-  .service('Directions', Directions);
+  .service('User', User);
