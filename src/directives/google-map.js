@@ -1,3 +1,4 @@
+// 'use strict';
 /* global google */
 googleMap.$inject = [];
 function googleMap() {
@@ -19,14 +20,19 @@ function googleMap() {
         zoom: $scope.zoom,
         center: $scope.center
       });
+
       const directionsService = new google.maps.DirectionsService();
       const directionsDisplay = new google.maps.DirectionsRenderer();
       const placesService = new google.maps.places.PlacesService(map);
+      // const infoWindows = [];
+      // const infowindow = new google.maps.InfoWindow();
+      // let marker = new google.maps.Marker;
+
       directionsDisplay.setMap(map);
 
       $scope.$watch('center', () => map.setCenter($scope.center), true);
 
-      $scope.$watchGroup(['origin', 'destination', 'travelMode'], displayRoute, displayRestaurants);
+      $scope.$watchGroup(['origin', 'destination', 'travelMode'], displayRoute);
 
       // DISPLAY ROUTE
       function displayRoute() {
@@ -39,6 +45,7 @@ function googleMap() {
         }, (response) => {
 
           directionsDisplay.setDirections(response);
+
 
           //beginning
           // placesService.nearbySearch({
@@ -55,62 +62,68 @@ function googleMap() {
           //   });
           // }); //end
 
+          // beginning of this form
           response.routes[0].legs[0].steps.map(step => {
+          // const steps = response.routes[0].legs[0].steps;
+          // const lookup = [steps[0], steps[Math.round(steps.length / 2)], steps[steps.length - 1]];
+          // lookup.map(step => {
+
+
             placesService.nearbySearch({
               location: step.start_point,
               radius: 50,
-              type: ['restaurant']
+              type: ['restaurant'],
+              openNow: true
             }, (results) => {
               results.map(place => {
-                return new google.maps.Marker({
+                // console.log(place);
+
+
+                // return new google.maps.Marker({
+                const marker = new google.maps.Marker({
                   map: map,
                   position: place.geometry.location
+                  // label: '⭐️'
+                  // icon: image
+                });  //google maps marker
+                // console.log(place.photos);
+                // console.log(place.photos.getUrl);
+                const photo = place.photos[0].getUrl({ 'maxWidth': 250, 'maxHeight': 200 });
+                console.log(photo);
+                // const photo = place[i]photos[0].getUrl({'maxWidth': 100, 'maxHeight': 100});
+
+                const infoContent = '<br/>' + '<strong>' + place.name + '</strong>' + '<br/>' + 'Address: ' + place.vicinity + '<br/>' + 'Rating: ' + place.rating + '<br/>' + 'Type: ' + place.types.slice(0,2) + '<br/><br/>' + '<img src="https://lh3.googleusercontent.com/p/AF1QipNHwMJ0jI5cVubNl5MS3kqJaWIWDLc2SJIGGCON=w250-h200-k">';
+
+                const infoWindow = new google.maps.InfoWindow({
+                  content: infoContent
+                });
+
+                google.maps.event.addListener(marker, 'click', function () {
+                  infoWindow.open(map, marker);
                 });
               });
+
+
+
+              // results.map(place => {
+              //   console.log(place.vicinity);
+              //   const contentString = place.name;
+              //   return new google.maps.InfoWindow({
+              //     title: place.name,
+              //     content: contentString
+              //   });  //google maps marker
+              //   // infoWindows.push(infowindow);
+              // });
+
+
             });
-          });
+          }); //end of this function
 
-        });
-      }
-
-      // DISPLAY RESTAURANTS
-      function displayRestaurants() {
-        console.log('display restaurants function');
-        // infowindow = new google.maps.InfoWindow();
-        // var service = new google.maps.places.PlacesService(map);
-        // service.nearbySearch({
-        //   location: $scope.destination,
-        //   radius: 500,
-        //   type: ['store']
-        // }, callback);
-      }
-
-      //
-      // function callback(results, status) {
-      //   if (status === google.maps.places.PlacesServiceStatus.OK) {
-      //     for (var i = 0; i < results.length; i++) {
-      //       createMarker(results[i]);
-      //     }
-      //   }
-      // }
-      //
-      // function createMarker(place) {
-      //   var placeLoc = place.geometry.location;
-      //   var marker = new google.maps.Marker({
-      //     map: map,
-      //     position: place.geometry.location
-      //   });
-      //
-      //   google.maps.event.addListener(marker, 'click', function() {
-      //     infowindow.setContent(place.name);
-      //     infowindow.open(map, this);
-      //   });
-      // }
+        });  //end return directionsdisplay
+      }  //display route ends
 
 
-
-
-    }
+    } //link scope ends
   };
 }
 
