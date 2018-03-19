@@ -3,8 +3,12 @@
 
   <form ng-submit="authEdit.handleSubmit()">
     <div class="field">
-      <label for="name">Name</label>
+      <label for="name">Choose a new Username:</label>
       <input class="input" ng-model="authEdit.user.name" name="name" placeholder="Name" />
+    </div>
+    <div class="field">
+      <label for="name">Choose a new Home Address:</label>
+      <input google-auto-complete class="input" ng-model="authEdit.user.address" name="address" placeholder="72 Bellenden Road..." />
     </div>
 
     <button class="button is-primary">Submit</button>

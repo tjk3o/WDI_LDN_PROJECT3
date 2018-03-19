@@ -1,6 +1,11 @@
 <div class="container">
   <h1>PROFILE PAGE</h1>
 
-  <h3>We're looking for this: {{ authShow.user }}</h3>
+  <ul>
+    <li>Name: {{ authShow.user.name }}</li>
+    <li>Email: {{ authShow.user.email }}</li>
+    <li>Address: {{ authShow.user.address }}</li>
+  </ul>
+  <a ui-sref="authEdit" ng-if="main.isAuthenticated()">Edit Profile</a>
 
 </div>
