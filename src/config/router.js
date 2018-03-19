@@ -12,7 +12,8 @@ function Router($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
       url: '/',
-      templateUrl: 'views/pages/home.html'
+      templateUrl: 'views/pages/home.html',
+      controller: 'PagesHomeCtrl as pagesHome'
     })
     .state('authRegister', {
       url: '/register',

@@ -11,6 +11,7 @@ import 'satellizer';
 // Controllers
 import MainCtrl from './controllers/main';
 import AuthRegisterCtrl from './controllers/auth/register';
+import PagesHomeCtrl from './controllers/pages/home';
 import AuthLoginCtrl from './controllers/auth/login';
 import AuthShowCtrl from './controllers/auth/show';
 import AuthEditCtrl from './controllers/auth/edit';
@@ -24,6 +25,7 @@ import googleMap from './directives/google-map';
 
 // Services
 import User from './services/user';
+import Directions from './services/directions';
 
 
 
@@ -31,9 +33,11 @@ angular.module('crave',['ui.router', 'satellizer'])
   .config(Router)
   .config(Auth)
   .controller('MainCtrl', MainCtrl)
+  .controller('PagesHomeCtrl', PagesHomeCtrl)
   .controller('AuthRegisterCtrl', AuthRegisterCtrl)
   .controller('AuthLoginCtrl', AuthLoginCtrl)
   .controller('AuthShowCtrl', AuthShowCtrl)
   .controller('AuthEditCtrl', AuthEditCtrl)
   .directive('googleMap', googleMap)
-  .service('User', User);
+  .service('User', User)
+  .service('Directions', Directions);

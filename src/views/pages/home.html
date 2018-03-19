@@ -1,24 +1,17 @@
+{{ pagesHome }}
 
+<google-map zoom="10" center="{ lat: 51.6, lng: -0.08 }" origin="pagesHome.origin" destination="pagesHome.destination" travel-mode="pagesHome.travelMode"></google-map>
 
-<google-map zoom="10" center="{ lat: 51.6, lng: -0.08 }"></google-map>
+<input type="text" placeholder="Enter an origin location" ng-model="pagesHome.origin">
+<input type="text" placeholder="Enter a destination location" ng-model="pagesHome.destination">
 
-<input id="origin-input" class="controls" type="text"
-    placeholder="Enter an origin location">
-    <input type="hidden" name="lat" />
-    <input type="hidden" name="lng" />
+<form>
+  <label>
+    <input type="radio" value="WALKING" ng-model="pagesHome.travelMode"> Walking
+  </label>
+  <label>
+    <input type="radio" value="DRIVING" ng-model="pagesHome.travelMode"> Taxi
+  </label>
 
-
-
-<input id="destination-input" class="controls" type="text"
-    placeholder="Enter a destination location">
-
-<div id="mode-selector" class="controls">
-  <input type="radio" name="type" id="changemode-walking" checked="checked">
-  <label for="changemode-walking">Walking</label>
-
-  <input type="radio" name="type" id="changemode-transit">
-  <label for="changemode-transit">Transit</label>
-
-  <input type="radio" name="type" id="changemode-driving">
-  <label for="changemode-driving">Driving</label>
-</div>
+  <button>Find Route</button>
+</form>
