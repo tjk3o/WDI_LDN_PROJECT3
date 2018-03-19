@@ -27,6 +27,8 @@ import googleAutoComplete from './directives/google-auto-complete';
 // Services
 import User from './services/user';
 
+
+
 angular.module('crave',['ui.router', 'satellizer'])
   .config(Router)
   .config(Auth)
