@@ -1,6 +1,6 @@
 function PagesHomeCtrl() {
-  this.origin = '';
-  this.destination = '';
+  this.origin = 'St Pauls, London';
+  this.destination = 'Oxford Street, London';
   this.travelMode = '';
 }
 

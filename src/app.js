@@ -26,6 +26,7 @@ import googleMap from './directives/google-map';
 // Services
 import User from './services/user';
 import Directions from './services/directions';
+import Places from './services/places';
 
 
 
@@ -40,4 +41,5 @@ angular.module('crave',['ui.router', 'satellizer'])
   .controller('AuthEditCtrl', AuthEditCtrl)
   .directive('googleMap', googleMap)
   .service('User', User)
-  .service('Directions', Directions);
+  .service('Directions', Directions)
+  .service('Places', Places);
