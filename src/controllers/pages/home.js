@@ -9,9 +9,15 @@ function PagesHomeCtrl() {
   function driving() {
     this.travelMode = 'DRIVING';
   }
-  
+  function clearSearch() {
+    this.origin = '';
+    this.destination = '';
+    this.travelMode = '';
+  }
+
   this.walking = walking;
   this.driving = driving;
+  this.clearSearch = clearSearch;
 }
 
 export default PagesHomeCtrl;
