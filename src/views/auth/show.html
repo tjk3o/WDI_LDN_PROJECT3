@@ -4,7 +4,8 @@
   <ul>
     <li>Name: {{ authShow.user.name }}</li>
     <li>Email: {{ authShow.user.email }}</li>
-    <li>Address: {{ authShow.user.address }}</li>
+    <li>Home Address: {{ authShow.user.home }}</li>
+    <li>Work Address: {{ authShow.user.work }}</li>
   </ul>
   <a ui-sref="authEdit" ng-if="main.isAuthenticated()">Edit Profile</a>
 

@@ -19,7 +19,11 @@ const userSchema = new mongoose.Schema(
       required: true
     },
 
-    address: {
+    home: {
+      type: String
+    },
+
+    work: {
       type: String
     }
 
