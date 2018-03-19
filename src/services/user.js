@@ -7,12 +7,12 @@ function User($http) {
 
   function findById(id) {
     // Not sure what this get request should be
-    return $http.get(`/api/user/${id}`);
+    return $http.get(`/api/users/${id}`);
   }
 
   function update(user) {
     // Not sure what this get request should be
-    return $http.put(`/api/login/${user._id}`, user);
+    return $http.put(`/api/users/${user._id}`, user);
   }
 
   this.find = find;

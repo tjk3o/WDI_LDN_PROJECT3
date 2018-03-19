@@ -13,7 +13,7 @@
           <nav class="navbar">
             <div class="container">
               <div class="navbar-brand">
-                <a class="navbar-item" ui-sref="craveHome">
+                <a class="navbar-item" ui-sref="home">
                   <h1 class="logo">CRAVE</h1>
                 </a>
                 <span class="navbar-burger burger" data-target="navbarMenuHeroA">
@@ -24,10 +24,9 @@
               </div>
               <div id="navbarMenuHeroA" class="navbar-menu">
                 <div class="navbar-end">
-                  <a class="navbar-item" ui-sref="craveIndex">INDEX</a>
                   <a class="navbar-item" ui-sref="authRegister" ng-if="!main.isAuthenticated()">REGISTER</a>
                   <a class="navbar-item" ui-sref="authLogin" ng-if="!main.isAuthenticated()">LOGIN</a>
-                  <a class="navbar-item" ui-sref="UserShowCtrl({ id: main.userId })" ng-if="main.isAuthenticated()">PROFILE</a>
+                  <a class="navbar-item" ui-sref="authShow" ng-if="main.isAuthenticated()">PROFILE</a>
                   <a class="navbar-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">LOGOUT</a>
                 </div>
               </div>

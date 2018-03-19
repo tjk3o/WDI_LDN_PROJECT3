@@ -30,12 +30,8 @@ function login(req,res,next){
 }
 
 function show(req, res, next) {
-  User.findOne(req.body._id)
-    .then(user => {
-      res.json({
-        user
-      });
-    })
+  User.findById(req.params.id)
+    .then(user => res.json(user))
     .catch(next);
 }
 

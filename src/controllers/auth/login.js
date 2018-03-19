@@ -9,7 +9,7 @@ function AuthLoginCtrl($auth, $state){
 
   function handleSubmit(){
     $auth.login(this.credentials)
-      .then($state.go('craveHome'));
+      .then(() => $state.go('home'));
   }
 
   this.handleSubmit = handleSubmit;

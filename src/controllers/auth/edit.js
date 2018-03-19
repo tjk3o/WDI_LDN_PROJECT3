@@ -5,7 +5,10 @@ function AuthEditCtrl(User, $state, $auth) {
   const payload = $auth.getPayload();
 
   User.findById(payload.sub)
-    .then(res => this.user = res.data);
+    .then(res => {
+      console.log(res.data);
+      this.user = res.data;
+    });
 
   function handleSubmit() {
     User.update(this.user)
