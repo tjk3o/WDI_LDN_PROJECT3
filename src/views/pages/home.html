@@ -2,16 +2,11 @@
 
 <google-map zoom="10" center="{ lat: 51.6, lng: -0.08 }" origin="pagesHome.origin" destination="pagesHome.destination" travel-mode="pagesHome.travelMode"></google-map>
 
-<input type="text" placeholder="Enter an origin location" ng-model="pagesHome.origin">
-<input type="text" placeholder="Enter a destination location" ng-model="pagesHome.destination">
+<input google-auto-complete type="text" placeholder="Enter an origin location" ng-model="pagesHome.origin">
+<input google-auto-complete type="text" placeholder="Enter a destination location" ng-model="pagesHome.destination">
 
 <form>
-  <label>
-    <input type="radio" value="WALKING" ng-model="pagesHome.travelMode"> Walking
-  </label>
-  <label>
-    <input type="radio" value="DRIVING" ng-model="pagesHome.travelMode"> Taxi
-  </label>
-
-  <button>Find Route</button>
+    <button value="WALKING" ng-disabled="pagesHome.travelMode" ng-click="pagesHome.walking()">Walking</button>
+    <button value="DRIVING" ng-disabled="pagesHome.travelMode" ng-click="pagesHome.driving()">Driving</button>
+    <button ng-disabled="!pagesHome.travelMode" ng-click="pagesHome.ClearPolyLine()">Clear search</button>
 </form>
