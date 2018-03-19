@@ -1,8 +1,6 @@
 /* global google */
-googleMap.$inject = ['Directions'];
-function googleMap(Directions) {
-
-  console.log('map directive loaded');
+googleMap.$inject = [];
+function googleMap() {
 
   return {
     restrict: 'E',
@@ -20,8 +18,10 @@ function googleMap(Directions) {
       const map = new google.maps.Map($element[0], {
         zoom: $scope.zoom,
         center: $scope.center
-
       });
+      const directionsService = new google.maps.DirectionsService();
+      const directionsDisplay = new google.maps.DirectionsRenderer();
+      directionsDisplay.setMap(map);
 
       $scope.$watch('center', () => map.setCenter($scope.center), true);
 
@@ -29,10 +29,8 @@ function googleMap(Directions) {
 
       function displayRoute() {
         if(!$scope.origin || !$scope.destination || !$scope.travelMode) return false;
-        const directionsDisplay = new google.maps.DirectionsRenderer();
-        directionsDisplay.setMap(map);
 
-        Directions.route({
+        directionsService.route({
           origin: $scope.origin,
           destination: $scope.destination,
           travelMode: $scope.travelMode

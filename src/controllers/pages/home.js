@@ -3,15 +3,11 @@ function PagesHomeCtrl() {
   this.destination = '';
   this.travelMode = '';
 
-  function walking() {
-    this.travelMode = 'WALKING';
+  function setTravelMode(mode) {
+    this.travelMode = mode;
   }
-  function driving() {
-    this.travelMode = 'DRIVING';
-  }
-  
-  this.walking = walking;
-  this.driving = driving;
+
+  this.setTravelMode = setTravelMode;
 }
 
 export default PagesHomeCtrl;
