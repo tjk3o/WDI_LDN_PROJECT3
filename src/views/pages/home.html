@@ -6,12 +6,6 @@
 <input type="text" placeholder="Enter a destination location" ng-model="pagesHome.destination">
 
 <form>
-  <label>
-    <input type="radio" value="WALKING" ng-model="pagesHome.travelMode"> Walking
-  </label>
-  <label>
-    <input type="radio" value="DRIVING" ng-model="pagesHome.travelMode"> Taxi
-  </label>
-
-  <button>Find Route</button>
+    <button value="WALKING" ng-click="pagesHome.walking()">Walking</button>
+    <button type="button" value="DRIVING" ng-click="pagesHome.driving()">Driving</button>
 </form>
