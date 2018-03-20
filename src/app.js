@@ -10,11 +10,13 @@ import 'satellizer';
 
 // Controllers
 import MainCtrl from './controllers/main';
+import KebabCtrl from './controllers/kebab';
 import AuthRegisterCtrl from './controllers/auth/register';
 import PagesHomeCtrl from './controllers/pages/home';
 import AuthLoginCtrl from './controllers/auth/login';
 import AuthShowCtrl from './controllers/auth/show';
 import AuthEditCtrl from './controllers/auth/edit';
+
 
 // Styling
 import 'bulma';
@@ -33,6 +35,7 @@ angular.module('crave',['ui.router', 'satellizer'])
   .config(Router)
   .config(Auth)
   .controller('MainCtrl', MainCtrl)
+  .controller('KebabCtrl', KebabCtrl)
   .controller('PagesHomeCtrl', PagesHomeCtrl)
   .controller('AuthRegisterCtrl', AuthRegisterCtrl)
   .controller('AuthLoginCtrl', AuthLoginCtrl)
