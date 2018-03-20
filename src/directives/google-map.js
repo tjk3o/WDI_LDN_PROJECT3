@@ -37,7 +37,7 @@ function googleMap() {
           destination: $scope.destination,
           travelMode: $scope.travelMode
         }, (response) => {
-
+          console.log($scope.origin);
           directionsDisplay.setDirections(response);
 
           //beginning
