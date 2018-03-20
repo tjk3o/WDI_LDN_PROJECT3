@@ -14,4 +14,13 @@ app.use(bodyParser.json());
 
 app.use('/api', router);
 
+app.use((err, req,res,next) => {
+  //can find the err.name and err.message by doing console.log(err)
+  if (err.name === 'ValidationError') res.status(422).json({ message: err.message });
+  res.status(500).json({ message: 'Internal Server Error '});
+  next();
+});
+
 app.listen(port, () => console.log(`port set up ${port}`));
+
+module.exports = app;

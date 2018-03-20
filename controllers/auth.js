@@ -35,8 +35,17 @@ function show(req, res, next) {
     .catch(next);
 }
 
+function update(req, res, next) {
+  User.findById(req.params.id)
+    .then(user => Object.assign(user, req.body))
+    .then(user => user.save())
+    .then(user => res.json(user))
+    .catch(next);
+}
+
 module.exports = {
   register,
   login,
-  show
+  show,
+  update
 };

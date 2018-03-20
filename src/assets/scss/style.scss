@@ -18,3 +18,33 @@ h1 {
   padding-left: 10px;
   font-size: 50px;
 }
+
+.notification {
+  height: 91px;
+  line-height: 3em;
+  position: absolute;
+  z-index: 1;
+  animation-duration: 4s;
+  animation-name: slide;
+}
+
+@keyframes slide {
+  0% {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  25% {
+    margin-left: 0%;
+    width: 100%;
+  }
+
+  75% {
+    margin-left: 0%;
+    width: 100%;
+  }
+  100% {
+    margin-left: 100%;
+    width: 300%;
+  }
+}
