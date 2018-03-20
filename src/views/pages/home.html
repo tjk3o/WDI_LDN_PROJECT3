@@ -1,8 +1,8 @@
 <!-- {{ pagesHome }} -->
 
-<!-- Abi's Loading Model -->
-<div class="loadingModel">
-  <p>LOADING</p>
+<!-- Abi's Loading Modal -->
+<div ng-if="pagesHome.loading" class="loadingModal">
+  <img src="http://www.zilliondesigns.com/blog/wp-content/uploads/eatstreet-loading.gif" width="100px" height="100px" alt="loading">
 </div>
 
 
@@ -62,3 +62,6 @@
       </div>
     </div>
   </form>
+
+  <a ng-click="myvalue = myvalue == true ? false : true;" class="button is-black is-medium">Show interactive directions</a>
+  <div class="directions-box" ng-show="myvalue" id="bottom-panel"></div>

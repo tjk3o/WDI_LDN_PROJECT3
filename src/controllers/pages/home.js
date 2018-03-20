@@ -1,4 +1,3 @@
-
 /* global google */
 PagesHomeCtrl.$inject = ['$scope', '$auth', 'User'];
 
@@ -9,6 +8,7 @@ function PagesHomeCtrl($scope, $auth, User) {
   vm.destination = 'Oxford Street, London';
   vm.travelMode = '';
   vm.foodType = '';
+  vm.loading = false;
 
 
   //This function sets the users walking or driving travel mode
@@ -33,6 +33,7 @@ function PagesHomeCtrl($scope, $auth, User) {
   //This function gets the users current position and sets it as the origin
 
   function userCurrentPosition(){
+    vm.loading = true;
     //The below function locates your current position in to lat and lng variables.
     navigator.geolocation.getCurrentPosition(pos => {
       const userCurrentLat = pos.coords.latitude;
@@ -46,6 +47,7 @@ function PagesHomeCtrl($scope, $auth, User) {
           if (results[0]) {
             vm.userCurrentAddress = results[0].formatted_address;
             vm.origin = results[0].formatted_address;
+            vm.loading = false;
             $scope.$apply();
 
             console.log('This is your current location:' + vm.userCurrentAddress);
@@ -81,22 +83,10 @@ function PagesHomeCtrl($scope, $auth, User) {
       });
   }
 
-
   vm.pullUserHome = pullUserHome;
-
-  //*****************************************************
-
-
-
-
-
 
 
 
 
 }
-
-
-
-
 export default PagesHomeCtrl;
