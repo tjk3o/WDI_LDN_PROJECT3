@@ -6,14 +6,33 @@ function MainCtrl($rootScope, User,$auth, $state, $timeout, $scope) {
 
   // This changeClass function enables the mobile burger menu in index.html
   $scope.class = '';
+  $scope.bottomnav = '';
+  $scope.chevron = '';
 
   $scope.changeClass = function(){
-    if ($scope.class === 'is-active')
+    if ($scope.class === 'is-active') {
       $scope.class = '';
-    else
+      console.log($scope.class);
+    } else {
       $scope.class = 'is-active';
+      console.log($scope.class);
+    }
+
   };
   //
+
+  // Open User Navigation Options
+  function openNav() {
+    if ($scope.bottomnav === 'active-bottom-nav') {
+      $scope.bottomnav = '';
+      $scope.chevron = 'fas fa-chevron-up';
+      console.log($scope.chevron);
+    } else {
+      $scope.bottomnav = 'active-bottom-nav';
+      $scope.chevron = 'fas fa-chevron-up active-chevron';
+      console.log($scope.chevron);
+    }
+  }
 
   function logout(){
     $rootScope.$broadcast('flashMessage', {
@@ -71,6 +90,7 @@ function MainCtrl($rootScope, User,$auth, $state, $timeout, $scope) {
     //then I want to save them as the value in the form with an ng-m
   }
   this.userCurrentPosition = userCurrentPosition;
+  this.openNav = openNav;
 
 }
 

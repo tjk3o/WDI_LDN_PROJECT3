@@ -1,19 +1,31 @@
-{{ pagesHome }}
-
+<!-- {{ pagesHome }} -->
 
 <google-map zoom="10" center="{ lat: 51.6, lng: -0.08 }" origin="pagesHome.origin" destination="pagesHome.destination" travel-mode="pagesHome.travelMode"></google-map>
 
+<div ng-class="bottomnav" class="bottom-nav">
+  <a ng-click="main.openNav()" ng-class="chevron"><i class="fas fa-chevron-up"></i></a>
+
   <form>
-    <h3>Where are you starting?</h3>
-    <button ng-click="main.userCurrentPosition()">Current Location</button>
-    <p ng-bind="main.userCurrentAddress"><p>
-    <p>OR</p>
-    <input google-auto-complete type="text" placeholder="Enter an origin location" ng-model="pagesHome.origin">
-    <h3>Where are going?</h3>
-    <button>Home</button><button>Work</button>
-    <p>OR</p>
-    <input google-auto-complete type="text" placeholder="Enter a destination location" ng-model="pagesHome.destination">
-    <h3>How will you get there?</h3>
-    <button value="WALKING" ng-disabled="pagesHome.travelMode" ng-click="pagesHome.setTravelMode('WALKING')">Walking</button>
-    <button value="DRIVING" ng-disabled="pagesHome.travelMode" ng-click="pagesHome.setTravelMode('DRIVING')">Driving</button>
-  </form>
+    <div class="columns">
+      <div class="column">
+        <h3>Where are you starting?</h3>
+        <button ng-click="main.userCurrentPosition()">Current Location</button>
+        <p ng-bind="main.userCurrentAddress"><p>
+          <p>OR</p>
+          <input google-auto-complete type="text" placeholder="Enter an origin location" ng-model="pagesHome.origin">
+        </div>
+        <div class="column">
+          <h3>Where are going?</h3>
+          <button>Home</button><button>Work</button>
+          <p>OR</p>
+          <input google-auto-complete type="text" placeholder="Enter a destination location" ng-model="pagesHome.destination">
+        </div>
+        <div class="column">
+          <h3>How will you get there?</h3>
+          <button value="WALKING" ng-disabled="pagesHome.travelMode" ng-click="pagesHome.setTravelMode('WALKING')">Walking</button>
+          <button value="DRIVING" ng-disabled="pagesHome.travelMode" ng-click="pagesHome.setTravelMode('DRIVING')">Driving</button>
+        </div>
+      </div>
+</div>
+
+</form>
