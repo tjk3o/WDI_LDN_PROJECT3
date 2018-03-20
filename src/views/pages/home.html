@@ -28,8 +28,8 @@
       </div>
       <div class="column">
         <h3 class="subtitle">Where are going?</h3>
-        <button class="button is-medium is-success" ng-disabled="!main.isAuthenticated()" ng-click="pagesHome.pullUserHome()">Home</button>
-        <button class="button is-medium is-success" ng-disabled="!main.isAuthenticated()">Work</button>
+        <button class="button is-medium is-success" ng-disabled="!main.isAuthenticated()" ng-click="pagesHome.pullUserHomeOrWork('home')">Home</button>
+        <button class="button is-medium is-success" ng-disabled="!main.isAuthenticated()" ng-click="pagesHome.pullUserHomeOrWork('work')">Work</button>
 
         <p>OR</p>
         <input google-auto-complete type="text"

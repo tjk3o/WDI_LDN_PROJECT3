@@ -73,18 +73,28 @@ function PagesHomeCtrl($scope, $auth, User) {
 
 
   //This function pulls the current users home address from database when the home button is clicked
-  function pullUserHome(){
-    vm.userHome = '';
-    const payload = $auth.getPayload();
-    User.findById(payload.sub)
-      .then(output => {
-        vm.userHome = output.data.home;
-        vm.destination = output.data.home;
-        console.log(vm.userHome);
-      });
+  function pullUserHomeOrWork(place){
+    vm.userPlace = '';
+    if (place === 'home'){
+      const payload = $auth.getPayload();
+      User.findById(payload.sub)
+        .then(output => {
+          vm.userPlace = output.data.home;
+          vm.destination = output.data.home;
+          console.log(vm.userHome);
+        });
+    } else if (place === 'work') {
+      const payload = $auth.getPayload();
+      User.findById(payload.sub)
+        .then(output => {
+          vm.userPlace = output.data.work;
+          vm.destination = output.data.work;
+          console.log(vm.userPlace);
+        });
+    }
   }
 
-  vm.pullUserHome = pullUserHome;
+  vm.pullUserHomeOrWork = pullUserHomeOrWork;
 
 
 
