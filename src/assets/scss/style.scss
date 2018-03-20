@@ -78,6 +78,33 @@ body {
     color: #444;
     background-color: #111;
   }
+
+  .loadingModal{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.3);
+    z-index: 1;
+    position: fixed; /* Stay in place */
+    left: 0;
+    top: 0;
+
+    .innerModal{
+      height: 200px;
+      width: 400px;
+      margin: 100px auto;
+
+      p{
+        color: white;
+      }
+
+      img{
+        display: block;
+        margin: 0 auto;
+      }
+
+    }
+
+  }
 }
 
 h1 {

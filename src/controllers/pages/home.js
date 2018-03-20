@@ -5,8 +5,8 @@ PagesHomeCtrl.$inject = ['$scope', '$auth', 'User'];
 function PagesHomeCtrl($scope, $auth, User) {
 
   const vm = this;
-  vm.origin = 'St Pauls, London';
-  vm.destination = 'Oxford Street, London';
+  vm.origin = '';
+  vm.destination = '';
   vm.travelMode = '';
   vm.foodType = '';
   vm.loading = false;
@@ -28,15 +28,13 @@ function PagesHomeCtrl($scope, $auth, User) {
 
 
   //CURRENT LOCATION FUNCTION
-  vm.userCurrentAddress = 'Your Current location will appear here';
-  console.log(vm.userCurrentAddress);
-
+  vm.userCurrentAddress = '';
   //This function gets the users current position and sets it as the origin
-
   function userCurrentPosition(){
     vm.loading = true;
     //The below function locates your current position in to lat and lng variables.
     navigator.geolocation.getCurrentPosition(pos => {
+      console.log(pos);
       const userCurrentLat = pos.coords.latitude;
       const userCurrentLng = pos.coords.longitude;
       //The below changes them in to an object ready for convering them in to an address string
@@ -50,7 +48,6 @@ function PagesHomeCtrl($scope, $auth, User) {
             vm.origin = results[0].formatted_address;
             vm.loading = false;
             $scope.$apply();
-
             console.log('This is your current location:' + vm.userCurrentAddress);
           } else {
             console.log('No results found');
