@@ -2,10 +2,12 @@
 
 <google-map zoom="10" center="{ lat: 51.6, lng: -0.08 }" origin="pagesHome.origin" destination="pagesHome.destination" travel-mode="pagesHome.travelMode"></google-map>
 
-<input google-auto-complete type="text" placeholder="Enter an origin location" ng-model="pagesHome.origin">
-<input google-auto-complete type="text" placeholder="Enter a destination location" ng-model="pagesHome.destination">
+<div class="user-navigator">
+  <input google-auto-complete type="text" placeholder="Enter an origin location" ng-model="pagesHome.origin">
+  <input google-auto-complete type="text" placeholder="Enter a destination location" ng-model="pagesHome.destination">
 
-<form>
+  <form>
     <button value="WALKING" ng-disabled="pagesHome.travelMode" ng-click="pagesHome.setTravelMode('WALKING')">Walking</button>
     <button value="DRIVING" ng-disabled="pagesHome.travelMode" ng-click="pagesHome.setTravelMode('DRIVING')">Driving</button>
-</form>
+  </form>
+</div>

@@ -11,6 +11,15 @@ body {
   .logo{
     text-align: center;
   }
+
+  .notification {
+    height: 91px;
+    line-height: 3em;
+    position: absolute;
+    z-index: 1;
+    animation-duration: 4s;
+    animation-name: slide;
+  }
 }
 
 h1 {
@@ -19,14 +28,6 @@ h1 {
   font-size: 50px;
 }
 
-.notification {
-  height: 91px;
-  line-height: 3em;
-  position: absolute;
-  z-index: 1;
-  animation-duration: 4s;
-  animation-name: slide;
-}
 
 @keyframes slide {
   0% {
@@ -46,5 +47,27 @@ h1 {
   100% {
     margin-left: 100%;
     width: 300%;
+  }
+}
+
+@media (max-width: 768px) {
+  .google-map {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: -1;
+  }
+  .hero-foot {
+    position: fixed;
+    left: 0vh;
+    bottom: 0vw;
+    width: 100%;
+  }
+  .user-navigator {
+    background-color: white;
+    position: fixed;
+    left: 0;
+    bottom: 25px;
+    width: 100%;
   }
 }
