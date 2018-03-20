@@ -390,6 +390,8 @@ function googleMap() {
       const directionsService = new google.maps.DirectionsService();
       const directionsDisplay = new google.maps.DirectionsRenderer();
       const placesService = new google.maps.places.PlacesService(map);
+      const directionsShow = document.getElementById('bottom-panel');
+
       // const infoWindows = [];
       // const infowindow = new google.maps.InfoWindow();
       // let marker = new google.maps.Marker;
@@ -431,7 +433,10 @@ function googleMap() {
           // }); //end
 
           // beginning of this form
+          console.log(response.routes[0].legs[0].steps);
+
           // response.routes[0].legs[0].steps.map(step => {
+
           const steps = response.routes[0].legs[0].steps;
           const lookup = [steps[0], steps[Math.round(steps.length / 2)], steps[steps.length - 1]];
           lookup.map(step => {
@@ -475,6 +480,11 @@ function googleMap() {
                 google.maps.event.addListener(marker, 'click', function () {
                   infoWindow.open(map, marker);
                 });
+
+                // PRINT MAPS
+                directionsDisplay.setPanel(directionsShow);
+
+
               });
 
 

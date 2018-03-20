@@ -4,6 +4,7 @@
 
 
 
+
 <!-- ng-disabled="pagesHome.travelMode" -->
 
   <form>
@@ -44,3 +45,6 @@
     <button ng-click="pagesHome.setTravelMode('WALKING')" ng-disabled="pagesHome.travelMode">Walking</button>
     <button ng-click="pagesHome.setTravelMode('DRIVING')" ng-disabled="pagesHome.travelMode">Driving</button>
   </form>
+
+  <a ng-click="myvalue = myvalue == true ? false : true;" class="button is-black is-medium">Show interactive directions</a>
+  <div class="directions-box" ng-show="myvalue" id="bottom-panel"></div>

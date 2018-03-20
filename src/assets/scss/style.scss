@@ -22,6 +22,19 @@ body {
   }
 }
 
+.directions-box {
+    max-height: 100%;
+    transition: 2s;
+    overflow: hidden;
+}
+
+.directions-box.hidden {
+    max-height: 0;
+}
+
+
+
+
 h1 {
   font-family: 'Cabin Sketch', cursive;
   padding-left: 10px;
