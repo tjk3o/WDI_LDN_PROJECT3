@@ -1,3 +1,4 @@
+
 /* global google */
 PagesHomeCtrl.$inject = ['$scope', '$auth', 'User'];
 
@@ -7,14 +8,29 @@ function PagesHomeCtrl($scope, $auth, User) {
   vm.origin = 'St Pauls, London';
   vm.destination = 'Oxford Street, London';
   vm.travelMode = '';
+  vm.foodType = '';
 
+
+  //This function sets the users walking or driving travel mode
   function setTravelMode(mode) {
     vm.travelMode = mode;
   }
+  vm.setTravelMode = setTravelMode;
+
+  // SETFOOD TYPE FUNCTION
+  function setFoodType(type) {
+    vm.foodType = type;
+    console.log('Show ' + type + ' type of restaurants');
+  }
+  vm.setFoodType = setFoodType;
+
+
 
   //CURRENT LOCATION FUNCTION
   vm.userCurrentAddress = 'Your Current location will appear here';
   console.log(vm.userCurrentAddress);
+
+  //This function gets the users current position and sets it as the origin
 
   function userCurrentPosition(){
     //The below function locates your current position in to lat and lng variables.
@@ -49,11 +65,11 @@ function PagesHomeCtrl($scope, $auth, User) {
     //then I want to save them as the value in the form with an ng-m
   }
   vm.userCurrentPosition = userCurrentPosition;
-  vm.setTravelMode = setTravelMode;
 
 
-  //HOME LOCATION FUNCTION // I'M HEEEERRRRREEEEE!
-  //abi testing getting the home address
+
+
+  //This function pulls the current users home address from database when the home button is clicked
   function pullUserHome(){
     vm.userHome = '';
     const payload = $auth.getPayload();
@@ -65,10 +81,22 @@ function PagesHomeCtrl($scope, $auth, User) {
       });
   }
 
-  this.pullUserHome = pullUserHome;
+
+  vm.pullUserHome = pullUserHome;
 
   //*****************************************************
 
+
+
+
+
+
+
+
+
 }
+
+
+
 
 export default PagesHomeCtrl;
