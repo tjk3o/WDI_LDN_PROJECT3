@@ -1,19 +1,26 @@
 {{ pagesHome }}
-
+<!-- Abi's Loading Model -->
+<div class="loadingModel">
+  <p>LOADING</p>
+</div>
 
 <google-map zoom="10" center="{ lat: 51.6, lng: -0.08 }" origin="pagesHome.origin" destination="pagesHome.destination" travel-mode="pagesHome.travelMode"></google-map>
 
   <form>
-    <h3>Where are you starting?</h3>
-    <button ng-click="main.userCurrentPosition()">Current Location</button>
-    <p ng-bind="main.userCurrentAddress"><p>
+    <h3 class="subtitle">Where are you starting?</h3>
+    <button ng-click="pagesHome.userCurrentPosition()">Use Current Location</button><p>{{pagesHome.userCurrentAddress}}<p>
     <p>OR</p>
+    <p>Enter your current location below</p>
     <input google-auto-complete type="text" placeholder="Enter an origin location" ng-model="pagesHome.origin">
-    <h3>Where are going?</h3>
-    <button>Home</button><button>Work</button>
+
+    <h3 class="subtitle">Where are going?</h3>
+    <button ng-disabled="!main.isAuthenticated()" ng-click="pagesHome.pullUserHome()">Home</button>
+    <button ng-disabled="!main.isAuthenticated()">Work</button>
     <p>OR</p>
+    <p>Enter your distination location below</p>
     <input google-auto-complete type="text" placeholder="Enter a destination location" ng-model="pagesHome.destination">
-    <h3>How will you get there?</h3>
+
+    <h3 class="subtitle">How will you get there?</h3>
     <button value="WALKING" ng-disabled="pagesHome.travelMode" ng-click="pagesHome.setTravelMode('WALKING')">Walking</button>
     <button value="DRIVING" ng-disabled="pagesHome.travelMode" ng-click="pagesHome.setTravelMode('DRIVING')">Driving</button>
   </form>
