@@ -7,6 +7,12 @@
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Bangers|Cabin+Sketch|Permanent+Marker|Rock+Salt" rel="stylesheet">
   </head>
   <body ng-controller="MainCtrl as main">
+
+    <!-- Flash messages -->
+    <div class="notification is-{{ main.flashMessage.type }}" ng-if="main.flashMessage">
+      {{ main.flashMessage.content }}
+    </div>
+
     <section class="hero is-medium">
        <!-- Hero head: will stick at the top -->
         <div class="hero-head">

@@ -1,6 +1,6 @@
 AuthLoginCtrl.$inject = ['$auth', '$state', '$rootScope'];
 
-function AuthLoginCtrl($auth, $state){
+function AuthLoginCtrl($auth, $state, $rootScope){
   this.credentials = {};
 
   function authenticate(provider) {
@@ -9,6 +9,10 @@ function AuthLoginCtrl($auth, $state){
 
   function handleSubmit(){
     $auth.login(this.credentials)
+      .then(() => $rootScope.$broadcast('flashMessage', {
+        type: 'success',
+        content: 'Welcome back!'
+      }))
       .then(() => $state.go('home'));
   }
 
