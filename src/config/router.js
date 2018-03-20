@@ -1,12 +1,15 @@
 secureState.$inject = ['$q', '$state', '$auth', '$rootScope'];
 function secureState($q, $state, $auth, $rootScope){
   return new $q((resolve) => {
-    if($auth.isAuthenticated()) return resolve();
-    $rootScope.$broadcast('flashMessage', {
-      type: 'danger',
-      content: 'You need to login first!'
-    });
-    $state.go('login');
+    if($auth.isAuthenticated()) {
+      return resolve();
+    } else {
+      $rootScope.$broadcast('flashMessage', {
+        type: 'danger',
+        content: 'You need to login first!'
+      });
+      $state.go('authLogin');
+    }
   });
 }
 

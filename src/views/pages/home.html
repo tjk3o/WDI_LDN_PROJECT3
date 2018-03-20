@@ -2,10 +2,27 @@
 
 <google-map zoom="10" center="{ lat: 51.6, lng: -0.08 }" origin="pagesHome.origin" destination="pagesHome.destination" travel-mode="pagesHome.travelMode" food-type="pagesHome.foodType"></google-map>
 
-<input google-auto-complete type="text" placeholder="Enter an origin location" ng-model="pagesHome.origin">
-<input google-auto-complete type="text" placeholder="Enter a destination location" ng-model="pagesHome.destination">
 
-<form>
+
+<!-- ng-disabled="pagesHome.travelMode" -->
+
+  <form>
+    <h3>Where are you starting?</h3>
+    <button ng-click="main.userCurrentPosition()">Current Location</button>
+    <p ng-bind="main.userCurrentAddress"><p>
+
+    <p>OR</p>
+    <input google-auto-complete type="text" placeholder="Enter an origin location" ng-model="pagesHome.origin">
+
+    <h3>Where are going?</h3>
+    <button>Home</button><button>Work</button>
+
+    <p>OR</p>
+    <input google-auto-complete type="text"
+    placeholder="Enter a destination location"
+    ng-model="pagesHome.destination">
+
+    <h3>What's your emotional state right now? </h3>
     <button class="button is-medium is-danger"
       ng-click="pagesHome.setFoodType('kebab')"
       ng-disabled="pagesHome.foodType">Hammered
@@ -22,9 +39,8 @@
       ng-click="pagesHome.setFoodType('chinese')"
       ng-disabled="pagesHome.foodType">Hardworking
     </button>
+
+    <h3>How will you get there?</h3>
     <button ng-click="pagesHome.setTravelMode('WALKING')" ng-disabled="pagesHome.travelMode">Walking</button>
     <button ng-click="pagesHome.setTravelMode('DRIVING')" ng-disabled="pagesHome.travelMode">Driving</button>
-
-</form>
-
-<!-- ng-disabled="pagesHome.travelMode" -->
+  </form>
