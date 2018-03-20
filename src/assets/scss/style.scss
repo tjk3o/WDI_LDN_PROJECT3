@@ -20,6 +20,14 @@ body {
     animation-duration: 4s;
     animation-name: slide;
   }
+
+  .display-none{
+    display: none;
+  }
+
+  #display{
+    display: block;
+  }
 }
 
 h1 {
