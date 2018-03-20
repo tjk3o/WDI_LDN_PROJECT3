@@ -31,9 +31,6 @@ body {
     transition: 0.5s;
   }
 
-  #tingnavbarMenuHeroA {
-  }
-
 // Rotates the chevron when opening and closing the bottom nav
   .fa-chevron-up svg {
     color: #fff;
@@ -44,6 +41,34 @@ body {
   .fa-chevron-up.active-chevron svg {
     color: #fff;
     transform: rotate(180deg);
+  }
+
+  .bottom-nav-button {
+    font-family: "Roboto", cursive, sans-serif;
+    font-size: 15px;
+    color: #000;
+    background-color: #fff;
+    border: 2px solid #A9A9A9;
+    border-radius: 3px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px 6px;
+    margin: 4px 0;
+  }
+
+  .bottom-nav-heading {
+    height: 40px;
+  }
+
+  h5.subtitle {
+    font-size: 15px;
+    vertical-align: middle;
+    margin-bottom: 0;
+  }
+
+  .column > input {
+    width: 90%;
+    height: 40px;
   }
 
   nav{
