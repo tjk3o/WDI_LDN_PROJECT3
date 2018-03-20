@@ -1,17 +1,28 @@
-<section>
+<section class="section">
   <div class="container">
-    <h2>Login</h2>
-    <form ng-submit="authLogin.handleSubmit()">
-      <div class="field">
-        <label for="email">Email</label>
-        <input class="input" placeholder="Email" name="email" ng-model="authLogin.credentials.email" />
-      </div>
-      <div class="field">
-        <label for="password">Password</label>
-        <input type="password" class="input" placeholder="Password" name="password" ng-model="authLogin.credentials.password" />
-      </div>
+    <h2 class="has-text-centered">login for your regular fix...</h2>
+    <div class="columns">
+      <div class="column">
 
-      <button class="button is-primary">Submit</button>
-    </form>
+        <form ng-submit="authLogin.handleSubmit()" class="user-forms">
+          <div class="field">
+            <label for="email">Email</label>
+              <div class="control has-icons-left">
+                <input class="input is-medium" placeholder="Email" name="email" ng-model="authLogin.credentials.email" />
+                <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+              </div>
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+              <div class="control has-icons-left">
+                <input type="password is-medium" class="input" placeholder="Password" name="password" ng-model="authLogin.credentials.password" />
+                <span class="icon is-small is-left"><i class="fas fa-key"></i></span>
+              </div>
+          </div>
+          <button class="button is-primary">Submit</button>
+        </form>
+
+      </div>
+    </div>
   </div>
 </section>
