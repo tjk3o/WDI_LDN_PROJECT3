@@ -1,4 +1,10 @@
-{{ pagesHome }}
+<!-- {{ pagesHome }} -->
+
+<!-- Abi's Loading Modal -->
+<div ng-if="pagesHome.loading" class="loadingModal">
+  <img src="http://www.zilliondesigns.com/blog/wp-content/uploads/eatstreet-loading.gif" width="100px" height="100px" alt="loading">
+</div>
+
 
 <google-map zoom="10" center="{ lat: 51.6, lng: -0.08 }" origin="pagesHome.origin" destination="pagesHome.destination" travel-mode="pagesHome.travelMode" food-type="pagesHome.foodType"></google-map>
 
@@ -7,43 +13,54 @@
 
 <!-- ng-disabled="pagesHome.travelMode" -->
 
+<div ng-class="bottomnav" class="bottom-nav">
+  <a ng-click="main.openNav()" ng-class="chevron"><i class="fas fa-chevron-up"></i></a>
+  <h3 class="subtitle">Plan a journey</h3>
+
   <form>
-    <h3>Where are you starting?</h3>
-    <button ng-click="main.userCurrentPosition()">Current Location</button>
-    <p ng-bind="main.userCurrentAddress"><p>
+    <div class="columns">
+      <div class="column">
+        <h3 class="subtitle">Where are you starting?</h3>
+        <button class="button is-medium is-warning" ng-click="pagesHome.userCurrentPosition()">Use Current Location</button><p>{{pagesHome.userCurrentAddress}}<p>
+          <p>OR</p>
+          <p>Enter your current location below</p>
+          <input google-auto-complete type="text" placeholder="Enter an origin location" ng-model="pagesHome.origin">
+      </div>
+      <div class="column">
+        <h3 class="subtitle">Where are going?</h3>
+        <button class="button is-medium is-success" ng-disabled="!main.isAuthenticated()" ng-click="pagesHome.pullUserHome()">Home</button>
+        <button class="button is-medium is-success" ng-disabled="!main.isAuthenticated()">Work</button>
 
-    <p>OR</p>
-    <input google-auto-complete type="text" placeholder="Enter an origin location" ng-model="pagesHome.origin">
-
-    <h3>Where are going?</h3>
-    <button>Home</button><button>Work</button>
-
-    <p>OR</p>
-    <input google-auto-complete type="text"
-    placeholder="Enter a destination location"
-    ng-model="pagesHome.destination">
-
-    <h3>What's your emotional state right now? </h3>
-    <button class="button is-medium is-danger"
-      ng-click="pagesHome.setFoodType('kebab')"
-      ng-disabled="pagesHome.foodType">Hammered
-    </button>
-    <button class="button is-medium is-danger"
-      ng-click="pagesHome.setFoodType('cafe')"
-      ng-disabled="pagesHome.foodType">Hungover
-    </button>
-    <button class="button is-medium is-danger"
-      ng-click="pagesHome.setFoodType('fastfood')"
-      ng-disabled="pagesHome.foodType">Hangry
-    </button>
-    <button class="button is-medium is-danger"
-      ng-click="pagesHome.setFoodType('chinese')"
-      ng-disabled="pagesHome.foodType">Hardworking
-    </button>
-
-    <h3>How will you get there?</h3>
-    <button ng-click="pagesHome.setTravelMode('WALKING')" ng-disabled="pagesHome.travelMode">Walking</button>
-    <button ng-click="pagesHome.setTravelMode('DRIVING')" ng-disabled="pagesHome.travelMode">Driving</button>
+        <p>OR</p>
+        <input google-auto-complete type="text"
+        placeholder="Enter a destination location"
+        ng-model="pagesHome.destination">
+      </div>
+      <div class="column">
+        <h3 class="subtitle">What's your emotional state right now? </h3>
+        <button class="button is-medium is-danger"
+        ng-click="pagesHome.setFoodType('kebab')"
+        ng-disabled="pagesHome.foodType">Hammered
+        </button>
+        <button class="button is-medium is-danger"
+        ng-click="pagesHome.setFoodType('cafe')"
+        ng-disabled="pagesHome.foodType">Hungover
+        </button>
+        <button class="button is-medium is-danger"
+        ng-click="pagesHome.setFoodType('fastfood')"
+        ng-disabled="pagesHome.foodType">Hangry
+        </button>
+        <button class="button is-medium is-danger"
+        ng-click="pagesHome.setFoodType('chinese')"
+        ng-disabled="pagesHome.foodType">Hardworking
+        </button>
+      </div>
+      <div class="column">
+        <h3 class="subtitle">How will you get there?</h3>
+        <button class="button is-medium is-info" value="WALKING" ng-click="pagesHome.setTravelMode('WALKING')" ng-disabled="pagesHome.travelMode">Walking</button>
+        <button class="button is-medium is-info" value="DRIVING" ng-click="pagesHome.setTravelMode('DRIVING')" ng-disabled="pagesHome.travelMode">Driving</button>
+      </div>
+    </div>
   </form>
 
   <a ng-click="myvalue = myvalue == true ? false : true;" class="button is-black is-medium">Show interactive directions</a>
