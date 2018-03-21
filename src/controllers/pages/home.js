@@ -16,6 +16,7 @@ function PagesHomeCtrl($scope, $auth, User, $timeout) {
   //This function sets the users walking or driving travel mode
   function setTravelMode(mode) {
     vm.travelMode = mode;
+    openNav();
   }
   vm.setTravelMode = setTravelMode;
 
@@ -25,23 +26,6 @@ function PagesHomeCtrl($scope, $auth, User, $timeout) {
     console.log('Show ' + type + ' type of restaurants');
   }
   vm.setFoodType = setFoodType;
-
-  //THE BELOW MOVES THE NAV
-  // This changeClass function enables the mobile burger menu in index.html
-  $scope.class = '';
-  $scope.bottomnav = '';
-  $scope.chevron = '';
-
-  $scope.changeClass = function(){
-    if ($scope.class === 'is-active') {
-      $scope.class = '';
-      console.log($scope.class);
-    } else {
-      $scope.class = 'is-active';
-      console.log($scope.class);
-    }
-
-  };
 
   //CURRENT LOCATION FUNCTION
   vm.userCurrentAddress = '';
@@ -126,7 +110,7 @@ function PagesHomeCtrl($scope, $auth, User, $timeout) {
         .then(output => {
           vm.userPlace = output.data.home;
           vm.destination = output.data.home;
-          console.log(vm.userHome);
+          console.log(vm.userPlace);
         });
     } else if (place === 'work') {
       const payload = $auth.getPayload();

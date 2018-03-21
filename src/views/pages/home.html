@@ -24,7 +24,8 @@
     <form ng-class="navigatebuttons" class="navigatebuttonshidden">
       <h3 class="subtitle">Plan a journey</h3>
       <div class="columns">
-        <div class="column">
+        <!-- Origin -->
+        <div ng-if="!pagesHome.origin" class="column">
           <h3 class="bottom-nav-text">Where are you starting?</h3>
           <button class="bottom-nav-button" ng-click="pagesHome.userCurrentPosition()">Use Current Location</button>
           <h5 class="bottom-nav-text">{{pagesHome.userCurrentAddress}}</h5>
@@ -32,7 +33,8 @@
           <h5 class="bottom-nav-text">Enter your current location below</h5>
             <input google-auto-complete type="text" placeholder="Enter an origin location" ng-model="pagesHome.origin">
         </div>
-        <div class="column">
+        <!-- Destination -->
+        <div ng-if="pagesHome.origin && !pagesHome.destination" class="column">
           <h3 class="bottom-nav-text">Where are going?</h3>
           <button class="bottom-nav-button" ng-show="main.isAuthenticated()" ng-click="pagesHome.pullUserHomeOrWork('home')">Home</button>
           <button class="bottom-nav-button" ng-show="main.isAuthenticated()" ng-click="pagesHome.pullUserHomeOrWork('work')">Work</button>
@@ -41,7 +43,8 @@
           placeholder="Enter a destination location"
           ng-model="pagesHome.destination">
         </div>
-        <div class="column">
+        <!-- Emotional state -->
+        <div ng-if="pagesHome.origin && pagesHome.destination && !pagesHome.foodType" class="column">
           <h3 class="bottom-nav-text">What's your emotional state right now? </h3>
           <button class="bottom-nav-button"
           ng-click="pagesHome.setFoodType('kebab')"
@@ -60,16 +63,19 @@
           ng-disabled="pagesHome.foodType">Hardworking
           </button>
         </div>
-        <div class="column">
+        <!-- Travel mode -->
+        <div ng-if="pagesHome.origin && pagesHome.destination && pagesHome.foodType && !pagesHome.travelMode" class="column">
           <h3 class="bottom-nav-text">How will you get there?</h3>
           <button class="bottom-nav-button" value="WALKING" ng-click="pagesHome.setTravelMode('WALKING')" ng-disabled="pagesHome.travelMode">Walking</button>
           <button class="bottom-nav-button" value="DRIVING" ng-click="pagesHome.setTravelMode('DRIVING')" ng-disabled="pagesHome.travelMode">Driving</button>
         </div>
       </div>
+
+
+        <!-- Turn by turn -->
       <div class="column">
+        <a ng-click="myvalue = myvalue == true ? false : true;" class="button is-primary is-medium">Show interactive directions</a>
+        <div class="directions-box" ng-show="myvalue" id="bottom-panel"></div>
+      </div>
 
-
-
-      <a ng-click="myvalue = myvalue == true ? false : true;" class="button is-primary is-medium">Show interactive directions</a>
-      <div class="directions-box" ng-show="myvalue" id="bottom-panel"></div>
     </form>
