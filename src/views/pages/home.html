@@ -3,7 +3,7 @@
 <!-- Abi's Loading Modal -->
 <div ng-if="pagesHome.loading" class="loadingModal">
   <div class="innerModal">
-    <p class="subtitle">Sit tight pal...We're locating you!</p>
+    <p class="subtitle">SIT TIGHT PAL...</br>WE'RE LOCATING YOU!</p>
     <img src="http://www.mattmanningchef.com/content/themes/mattmanningchef/resources/assets/img//loading.gif" width="100px" height="100px" alt="loading">
   </div>
 </div>
@@ -23,9 +23,10 @@
 
     <form ng-class="navigatebuttons" class="navigatebuttonshidden">
       <h3 class="subtitle">Plan a journey</h3>
+      <p>{{pagesHome.unsuccessfulLocateMessage}}</p>
       <div class="columns">
         <!-- Origin -->
-        <div ng-if="!pagesHome.origin" class="column">
+        <div class="column">
           <h3 class="bottom-nav-text">Where are you starting?</h3>
           <button class="bottom-nav-button" ng-click="pagesHome.userCurrentPosition()">Use Current Location</button>
           <h5 class="bottom-nav-text">{{pagesHome.userCurrentAddress}}</h5>

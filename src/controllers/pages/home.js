@@ -29,6 +29,7 @@ function PagesHomeCtrl($scope, $auth, User, $timeout) {
 
   //CURRENT LOCATION FUNCTION
   vm.userCurrentAddress = '';
+  vm.unsuccessfulLocateMessage = '';
   //This function gets the users current position and sets it as the origin
   function userCurrentPosition(){
     openNav();
@@ -63,13 +64,13 @@ function PagesHomeCtrl($scope, $auth, User, $timeout) {
 
         }
       });
-      //then I need to input the origin in the the google-maps directive
     }, err => {
       if (err.TIMEOUT) {
         vm.loading = false;
         openNav();
-        $scope.$apply();
         console.log('TIMEOUT');
+        vm.unsuccessfulLocateMessage = 'Sorry, we couldn\'t locate you this time.';
+        $scope.$apply();
       }
     }, ops);
 
