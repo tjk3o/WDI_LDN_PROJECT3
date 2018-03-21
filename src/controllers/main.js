@@ -28,14 +28,18 @@ function MainCtrl($rootScope, User,$auth, $state, $timeout, $scope) {
 
   // Open User Navigation Options
   function openNav() {
+    $scope.navigatebuttons = '';
+
     if ($scope.bottomnav === 'active-bottom-nav') {
       $scope.bottomnav = '';
       $scope.chevron = 'chevron-image';
-      console.log($scope.chevron);
+      $scope.navigatebuttons = 'navigatebuttonshidden';
+      console.log($scope.navigatebuttons);
     } else {
       $scope.bottomnav = 'active-bottom-nav';
+      $scope.navigatebuttons = 'navigatebuttonsshown';
       $scope.chevron = 'chevron-image active-chevron';
-      console.log($scope.chevron);
+      console.log($scope.navigatebuttons);
     }
   }
   this.openNav = openNav;

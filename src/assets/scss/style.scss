@@ -38,8 +38,13 @@ body {
 
   }
 
-  .navigatebuttons {
+  // Hides the buttons on page load
+  .navigatebuttonshidden {
     display: none;
+  }
+  // Shows the buttons when the menu is accessed
+  .navigatebuttonsshown {
+    display: block;
   }
 
   .chevron-image {
