@@ -16,7 +16,6 @@ body {
     font-size: 20px;
   }
 
-
   .user-forms {
     border: 0px solid #ccc;
     margin: 0 auto;
@@ -35,6 +34,38 @@ body {
   :-moz-placeholder { /* Firefox 18- */
   font-size: 16px;
   }
+
+  .emotion_icons {
+    margin: 0 auto;
+  }
+
+  // emotion_icons hover and shake states
+  .emotion_icons:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    cursor: pointer;
+    color: #143853;
+  }
+
+  @keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
 
   nav {
     height: 90px;
@@ -180,8 +211,8 @@ body {
   .loadingModal{
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0,0,0,0.3);
-    z-index: 1;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 999;
     position: fixed; /* Stay in place */
     left: 0;
     top: 0;
@@ -192,7 +223,9 @@ body {
       margin: 200px auto;
 
       p{
-        color: white;
+        font-size: 30px;
+        color: #fff;
+        text-align: center;
       }
 
       img{
