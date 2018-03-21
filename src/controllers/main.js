@@ -1,29 +1,13 @@
 /* global google */
-MainCtrl.$inject = ['$rootScope','User','$auth', '$state', '$timeout', '$scope'];
+MainCtrl.$inject = ['$rootScope','User','$auth', '$state', '$timeout'];
 
-function MainCtrl($rootScope, User,$auth, $state, $timeout, $scope) {
+function MainCtrl($rootScope, User,$auth, $state, $timeout) {
+
+  // $scope.navigatebuttons
   const vm = this;
   vm.flashMessage = null;
   vm.isAuthenticated = $auth.isAuthenticated;
 
-  // This changeClass function enables the mobile burger menu in index.html
-  $scope.class = '';
-  $scope.bottomnav = '';
-  $scope.chevron = '';
-
-  $scope.changeClass = function(){
-    if ($scope.class === 'is-active') {
-      $scope.class = '';
-      console.log($scope.class);
-    } else {
-      $scope.class = 'is-active';
-      console.log($scope.class);
-    }
-
-  };
-  //
-
-  // Open User Navigation Options WAS HERE
 
 
   function logout(){
@@ -72,6 +56,8 @@ function MainCtrl($rootScope, User,$auth, $state, $timeout, $scope) {
 
   //here I want to save the lat and lng as seperate variales.
   //then I want to save them as the value in the form with an ng-m
+
+
 }
 
 

@@ -3,12 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>WDI32 Group Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Viewport tag for mobile optimization -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8C7HRroI6BaALKHa6EHMc_BDYLIB5kUA&libraries=places"></script>
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Bangers|Cabin+Sketch|Permanent+Marker|Rock+Salt" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+
   </head>
   <body ng-controller="MainCtrl as main">
 
@@ -32,7 +36,7 @@
                   <span></span>
                 </span>
               </div>
-              <div id="tingnavbarMenuHeroA" ng-class="class" ng-click="changeClass()" class="navbar-menu">
+              <div id="navbarMenuHeroA" ng-class="class" ng-click="changeClass()" class="navbar-menu">
                 <div class="navbar-end">
                   <a class="navbar-item" ui-sref="authRegister" ng-if="!main.isAuthenticated()">REGISTER</a>
                   <a class="navbar-item" ui-sref="authLogin" ng-if="!main.isAuthenticated()">LOGIN</a>
@@ -44,7 +48,7 @@
           </nav>
         </div>
 
-    <ui-view></ui-view>
+    <ui-view class="view"></ui-view>
 
     <!-- Hero footer: will stick at the bottom optional-->
       <div class="hero-foot">

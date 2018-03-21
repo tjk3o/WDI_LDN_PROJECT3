@@ -13,55 +13,63 @@
 
 
 
-
 <!-- ng-disabled="pagesHome.travelMode" -->
 
-<div ng-class="bottomnav" class="bottom-nav">
-  <a ng-click="pagesHome.openNav()" ng-class="chevron"><i class="fas fa-chevron-up"></i></a>
-  <h3 class="subtitle">Plan a journey</h3>
 
-  <form>
-    <div class="columns">
-      <div class="column">
-        <h3 class="subtitle">Where are you starting?</h3>
-        <button class="button is-medium is-warning" ng-click="pagesHome.userCurrentPosition()">Use Current Location</button><p>{{pagesHome.userCurrentAddress}}<p>
+<a ng-click="pagesHome.openNav()">
+  <div ng-class="bottomnav" class="{{ pagesHome.bottomnav }}">
+    <img ng-class="chevron" class="chevron-image" src="../../assets/images/chevron.png" alt="chevron">
+</a>
+
+    <form ng-class="navigatebuttons" class="navigatebuttonshidden">
+      <h3 class="subtitle">Plan a journey</h3>
+      <div class="columns">
+        <div class="column">
+          <h3 class="bottom-nav-text">Where are you starting?</h3>
+          <button class="bottom-nav-button" ng-click="pagesHome.userCurrentPosition()">Use Current Location</button>
+          <h5 class="bottom-nav-text">{{pagesHome.userCurrentAddress}}</h5>
+          <h5 class="bottom-nav-text">OR</h5>
+          <h5 class="bottom-nav-text">Enter your current location below</h5>
+            <input google-auto-complete type="text" placeholder="Enter an origin location" ng-model="pagesHome.origin">
+        </div>
+        <div class="column">
+          <h3 class="bottom-nav-text">Where are going?</h3>
+          <button class="bottom-nav-button" ng-show="main.isAuthenticated()" ng-click="pagesHome.pullUserHomeOrWork('home')">Home</button>
+          <button class="bottom-nav-button" ng-show="main.isAuthenticated()" ng-click="pagesHome.pullUserHomeOrWork('work')">Work</button>
           <p>OR</p>
-          <p>Enter your current location below</p>
-          <input google-auto-complete type="text" placeholder="Enter an origin location" ng-model="pagesHome.origin">
+          <input google-auto-complete type="text"
+          placeholder="Enter a destination location"
+          ng-model="pagesHome.destination">
+        </div>
+        <div class="column">
+          <h3 class="bottom-nav-text">What's your emotional state right now? </h3>
+          <button class="bottom-nav-button"
+          ng-click="pagesHome.setFoodType('kebab')"
+          ng-disabled="pagesHome.foodType">Hammered
+          </button>
+          <button class="bottom-nav-button"
+          ng-click="pagesHome.setFoodType('cafe')"
+          ng-disabled="pagesHome.foodType">Hungover
+          </button>
+          <button class="bottom-nav-button"
+          ng-click="pagesHome.setFoodType('fastfood')"
+          ng-disabled="pagesHome.foodType">Hangry
+          </button>
+          <button class="bottom-nav-button"
+          ng-click="pagesHome.setFoodType('chinese')"
+          ng-disabled="pagesHome.foodType">Hardworking
+          </button>
+        </div>
+        <div class="column">
+          <h3 class="bottom-nav-text">How will you get there?</h3>
+          <button class="bottom-nav-button" value="WALKING" ng-click="pagesHome.setTravelMode('WALKING')" ng-disabled="pagesHome.travelMode">Walking</button>
+          <button class="bottom-nav-button" value="DRIVING" ng-click="pagesHome.setTravelMode('DRIVING')" ng-disabled="pagesHome.travelMode">Driving</button>
+        </div>
       </div>
       <div class="column">
-        <h3 class="subtitle">Where are going?</h3>
-        <button class="button is-medium is-success" ng-disabled="!main.isAuthenticated()" ng-click="pagesHome.pullUserHomeOrWork('home')">Home</button>
-        <button class="button is-medium is-success" ng-disabled="!main.isAuthenticated()" ng-click="pagesHome.pullUserHomeOrWork('work')">Work</button>
 
-        <p>OR</p>
-        <input google-auto-complete type="text"
-        placeholder="Enter a destination location"
-        ng-model="pagesHome.destination">
-      </div>
-      <div class="column">
-        <h3 class="subtitle">What's your emotional state right now? </h3>
-        <button class="button is-medium is-danger"
-        ng-click="pagesHome.setFoodType('kebab')"
-        ng-disabled="pagesHome.foodType">Hammered
-        </button>
-        <button class="button is-medium is-danger"
-        ng-click="pagesHome.setFoodType('cafe')"
-        ng-disabled="pagesHome.foodType">Hungover
-        </button>
-        <button class="button is-medium is-danger"
-        ng-click="pagesHome.setFoodType('fastfood')"
-        ng-disabled="pagesHome.foodType">Hangry
-        </button>
-        <button class="button is-medium is-danger"
-        ng-click="pagesHome.setFoodType('chinese')"
-        ng-disabled="pagesHome.foodType">Hardworking
-        </button>
-      </div>
-      <div class="column">
-        <h3 class="subtitle">How will you get there?</h3>
-        <button class="button is-medium is-info" value="WALKING" ng-click="pagesHome.setTravelMode('WALKING')" ng-disabled="pagesHome.travelMode">Walking</button>
-        <button class="button is-medium is-info" value="DRIVING" ng-click="pagesHome.setTravelMode('DRIVING')" ng-disabled="pagesHome.travelMode">Driving</button>
-      </div>
-    </div>
-  </form>
+
+
+      <a ng-click="myvalue = myvalue == true ? false : true;" class="button is-primary is-medium">Show interactive directions</a>
+      <div class="directions-box" ng-show="myvalue" id="bottom-panel"></div>
+    </form>

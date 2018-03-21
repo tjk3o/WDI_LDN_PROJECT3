@@ -1,15 +1,16 @@
-
 /* global google */
-PagesHomeCtrl.$inject = ['$scope', '$auth', 'User'];
+PagesHomeCtrl.$inject = ['$scope', '$auth', 'User', '$timeout'];
 
-function PagesHomeCtrl($scope, $auth, User) {
+function PagesHomeCtrl($scope, $auth, User, $timeout) {
 
   const vm = this;
   vm.origin = '';
   vm.destination = '';
   vm.travelMode = '';
+  vm.bottomnav = null;
   vm.foodType = '';
   vm.loading = false;
+
 
 
   //This function sets the users walking or driving travel mode
@@ -25,7 +26,22 @@ function PagesHomeCtrl($scope, $auth, User) {
   }
   vm.setFoodType = setFoodType;
 
+  //THE BELOW MOVES THE NAV
+  // This changeClass function enables the mobile burger menu in index.html
+  $scope.class = '';
+  $scope.bottomnav = '';
+  $scope.chevron = '';
 
+  $scope.changeClass = function(){
+    if ($scope.class === 'is-active') {
+      $scope.class = '';
+      console.log($scope.class);
+    } else {
+      $scope.class = 'is-active';
+      console.log($scope.class);
+    }
+
+  };
 
   //CURRENT LOCATION FUNCTION
   vm.userCurrentAddress = '';
@@ -66,9 +82,9 @@ function PagesHomeCtrl($scope, $auth, User) {
     }, err => {
       if (err.TIMEOUT) {
         vm.loading = false;
+        openNav();
         $scope.$apply();
         console.log('TIMEOUT');
-        openNav();
       }
     }, ops);
 
@@ -77,19 +93,25 @@ function PagesHomeCtrl($scope, $auth, User) {
   }
   vm.userCurrentPosition = userCurrentPosition;
 
-  // Home Page Navigation
+  // Home Page navigation open and close toggle function
   function openNav() {
+    $scope.navigatebuttons = '';
+    console.log('clicked');
     if ($scope.bottomnav === 'active-bottom-nav') {
+      console.log('if');
       $scope.bottomnav = '';
-      $scope.chevron = 'fas fa-chevron-up';
-      console.log($scope.chevron);
+      $scope.chevron = 'chevron-image';
+      $scope.navigatebuttons = 'navigatebuttonshidden';
+      console.log($scope.navigatebuttons);
     } else {
+      console.log('else');
       $scope.bottomnav = 'active-bottom-nav';
-      $scope.chevron = 'fas fa-chevron-up active-chevron';
-      console.log($scope.chevron);
+      $scope.navigatebuttons = 'navigatebuttonsshown';
+      $scope.chevron = 'chevron-image active-chevron';
+      console.log($scope.navigatebuttons);
     }
   }
-  this.openNav = openNav;
+  vm.openNav = openNav;
 
 
 
@@ -119,10 +141,9 @@ function PagesHomeCtrl($scope, $auth, User) {
   vm.pullUserHomeOrWork = pullUserHomeOrWork;
 
 
+  // Bounce menu when page loads
+  $timeout(() => vm.bottomnav = 'bottom-nav animated infinite bounce', 1500);
+  $timeout(() => vm.bottomnav = 'bottom-nav', 3500);
 
 }
-
-
-
-
 export default PagesHomeCtrl;
