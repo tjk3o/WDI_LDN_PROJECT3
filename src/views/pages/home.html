@@ -6,7 +6,7 @@
 </div>
 
 
-<google-map zoom="10" center="{ lat: 51.6, lng: -0.08 }" origin="pagesHome.origin" destination="pagesHome.destination" travel-mode="pagesHome.travelMode" food-type="pagesHome.foodType"></google-map>
+<google-map zoom="14" center="{ lat: 51.513172, lng: -0.111997 }" origin="pagesHome.origin" destination="pagesHome.destination" travel-mode="pagesHome.travelMode" food-type="pagesHome.foodType"></google-map>
 
 
 
@@ -17,7 +17,7 @@
     <img ng-class="chevron" class="chevron-image" src="../../assets/images/chevron.png" alt="chevron">
 </a>
 
-    <form ng-class="navigatebuttons" class="navigatebuttons">
+    <form ng-class="navigatebuttons" class="">
       <h3 class="subtitle">Plan a journey</h3>
       <div class="columns">
         <div class="column">
@@ -28,6 +28,9 @@
           <h5 class="bottom-nav-text">Enter your current location below</h5>
             <input google-auto-complete type="text" placeholder="Enter an origin location" ng-model="pagesHome.origin">
         </div>
+      </div>
+
+      <div class="columns">
         <div class="column">
           <h3 class="bottom-nav-text">Where are going?</h3>
           <button class="bottom-nav-button" ng-disabled="!main.isAuthenticated()" ng-click="pagesHome.pullUserHome()">Home</button>
@@ -37,13 +40,43 @@
           placeholder="Enter a destination location"
           ng-model="pagesHome.destination">
         </div>
-        <div class="column">
-          <h3 class="bottom-nav-text">What's your emotional state right now? </h3>
-          <button class="bottom-nav-button"
-          ng-click="pagesHome.setFoodType('kebab')"
-          ng-disabled="pagesHome.foodType">Hammered
-          </button>
-          <button class="bottom-nav-button"
+      </div>
+
+      <h2 style="padding-bottom: 20px;">What's your emotional state right now? </h2>
+      <div class="columns is-mobile">
+
+            <div class="column is-half-mobile">
+              <h3>i'm hammered</h3>
+              <img class="image is-128x128 emotion_icons shadowfilter" src="../../assets/images/vomit_icon.png" ng-click="pagesHome.setFoodType('kebab')" ng-disabled="pagesHome.foodType"/>
+              <h3 class="has-text-grey">(feed me kebabs)</h3>
+            </div>
+
+            <div class="column is-half-mobile">
+              <h3>i'm hungover</h3>
+              <img class="image is-128x128 emotion_icons shadowfilter" src="../../assets/images/hungover_icon.png" ng-click="pagesHome.setFoodType('cafe')"
+              ng-disabled="pagesHome.foodType"/>
+              <h3 class="has-text-grey">(feed me breakfast)</h3>
+            </div>
+
+
+              <div class="column is-half-mobile">
+                <h3>i'm hangry</h3>
+                <img class="image is-128x128 emotion_icons shadowfilter" src="../../assets/images/hangry_icon-2.png" ng-click="pagesHome.setFoodType('fastfood')"
+                ng-disabled="pagesHome.foodType"/>
+                <h3 class="has-text-grey">(feed me fastfood)</h3>
+              </div>
+
+            <div class="column is-half-mobile">
+              <h3>i'm hardworking today
+              </h3>
+              <img class="image is-128x128 emotion_icons shadowfilter" src="../../assets/images/working_icon-4.png" ng-click="pagesHome.setFoodType('chinese')"
+              ng-disabled="pagesHome.foodType"/>
+              <h3 class="has-text-grey">(feed me chinese)</h3>
+            </div>
+          </div>
+
+
+          <!-- <button class="bottom-nav-button"
           ng-click="pagesHome.setFoodType('cafe')"
           ng-disabled="pagesHome.foodType">Hungover
           </button>
@@ -54,15 +87,19 @@
           <button class="bottom-nav-button"
           ng-click="pagesHome.setFoodType('chinese')"
           ng-disabled="pagesHome.foodType">Hardworking
-          </button>
-        </div>
+          </button> -->
+
+
+
+      <div class="columns">
         <div class="column">
           <h3 class="bottom-nav-text">How will you get there?</h3>
           <button class="bottom-nav-button" value="WALKING" ng-click="pagesHome.setTravelMode('WALKING')" ng-disabled="pagesHome.travelMode">Walking</button>
           <button class="bottom-nav-button" value="DRIVING" ng-click="pagesHome.setTravelMode('DRIVING')" ng-disabled="pagesHome.travelMode">Driving</button>
+
+          <a ng-click="myvalue = myvalue == true ? false : true;" class="button is-primary is-medium">Show interactive directions</a>
+          <div class="directions-box" ng-show="myvalue" id="bottom-panel"></div>
         </div>
       </div>
-
-      <a ng-click="myvalue = myvalue == true ? false : true;" class="button is-primary is-medium">Show interactive directions</a>
-      <div class="directions-box" ng-show="myvalue" id="bottom-panel"></div>
+    </div>
     </form>
