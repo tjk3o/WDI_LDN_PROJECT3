@@ -64,6 +64,7 @@ function PagesHomeCtrl($scope, $auth, User, $timeout) {
       const geocoder = new google.maps.Geocoder;
       geocoder.geocode({'location': latLng}, function(results, status) {
         if (status === 'OK') {
+          openNav();
           if (results[0]) {
             vm.userCurrentAddress = results[0].formatted_address;
             vm.origin = results[0].formatted_address;
