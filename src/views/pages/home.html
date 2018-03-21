@@ -2,7 +2,10 @@
 
 <!-- Abi's Loading Modal -->
 <div ng-if="pagesHome.loading" class="loadingModal">
-  <img src="http://www.zilliondesigns.com/blog/wp-content/uploads/eatstreet-loading.gif" width="100px" height="100px" alt="loading">
+  <div class="innerModal">
+    <p class="subtitle">Sit tight pal...We're locating you!</p>
+    <img src="http://www.mattmanningchef.com/content/themes/mattmanningchef/resources/assets/img//loading.gif" width="100px" height="100px" alt="loading">
+  </div>
 </div>
 
 
@@ -12,8 +15,9 @@
 
 <!-- ng-disabled="pagesHome.travelMode" -->
 
-<a ng-click="main.openNav()">
-  <div ng-class="bottomnav" class="{{ main.bottomnav }}">
+
+<a ng-click="pagesHome.openNav()">
+  <div ng-class="bottomnav" class="{{ pagesHome.bottomnav }}">
     <img ng-class="chevron" class="chevron-image" src="../../assets/images/chevron.png" alt="chevron">
 </a>
 
@@ -32,8 +36,8 @@
         <!-- Destination -->
         <div ng-if="pagesHome.origin && !pagesHome.destination" class="column">
           <h3 class="bottom-nav-text">Where are going?</h3>
-          <button class="bottom-nav-button" ng-disabled="!main.isAuthenticated()" ng-click="pagesHome.pullUserHome()">Home</button>
-          <button class="bottom-nav-button" ng-disabled="!main.isAuthenticated()">Work</button>
+          <button class="bottom-nav-button" ng-show="main.isAuthenticated()" ng-click="pagesHome.pullUserHomeOrWork('home')">Home</button>
+          <button class="bottom-nav-button" ng-show="main.isAuthenticated()" ng-click="pagesHome.pullUserHomeOrWork('work')">Work</button>
           <p>OR</p>
           <input google-auto-complete type="text"
           placeholder="Enter a destination location"
@@ -67,6 +71,9 @@
         </div>
 
       </div>
+      <div class="column">
+
+
 
       <a ng-if="pagesHome.origin && pagesHome.destination" ng-click="myvalue = myvalue == true ? false : true;" class="button is-primary is-medium">Show interactive directions</a>
       <div ng-if="pagesHome.origin" class="directions-box" ng-show="myvalue" id="bottom-panel"></div>

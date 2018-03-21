@@ -1,48 +1,14 @@
 /* global google */
-MainCtrl.$inject = ['$rootScope','User','$auth', '$state', '$timeout', '$scope'];
+MainCtrl.$inject = ['$rootScope','User','$auth', '$state', '$timeout'];
 
-function MainCtrl($rootScope, User,$auth, $state, $timeout, $scope) {
+function MainCtrl($rootScope, User,$auth, $state, $timeout) {
 
   // $scope.navigatebuttons
   const vm = this;
   vm.flashMessage = null;
-  vm.bottomnav = null;
   vm.isAuthenticated = $auth.isAuthenticated;
 
-  // This changeClass function enables the mobile burger menu in index.html
-  $scope.class = '';
-  $scope.bottomnav = '';
-  $scope.chevron = '';
 
-  $scope.changeClass = function(){
-    if ($scope.class === 'is-active') {
-      $scope.class = '';
-      console.log($scope.class);
-    } else {
-      $scope.class = 'is-active';
-      console.log($scope.class);
-    }
-
-  };
-  //
-
-  // Open User Navigation Options
-  function openNav() {
-    $scope.navigatebuttons = '';
-
-    if ($scope.bottomnav === 'active-bottom-nav') {
-      $scope.bottomnav = '';
-      $scope.chevron = 'chevron-image';
-      $scope.navigatebuttons = 'navigatebuttonshidden';
-      console.log($scope.navigatebuttons);
-    } else {
-      $scope.bottomnav = 'active-bottom-nav';
-      $scope.navigatebuttons = 'navigatebuttonsshown';
-      $scope.chevron = 'chevron-image active-chevron';
-      console.log($scope.navigatebuttons);
-    }
-  }
-  this.openNav = openNav;
 
   function logout(){
     $rootScope.$broadcast('flashMessage', {
@@ -91,9 +57,7 @@ function MainCtrl($rootScope, User,$auth, $state, $timeout, $scope) {
   //here I want to save the lat and lng as seperate variales.
   //then I want to save them as the value in the form with an ng-m
 
-  // Bounce menu when page loads
-  $timeout(() => vm.bottomnav = 'bottom-nav animated infinite bounce', 1500);
-  $timeout(() => vm.bottomnav = 'bottom-nav', 3500);
+
 }
 
 
