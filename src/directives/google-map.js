@@ -69,7 +69,7 @@ function googleMap() {
           destination: $scope.destination,
           travelMode: $scope.travelMode
         }, (response) => {
-
+          console.log(response.routes);
           // console.log($scope.origin);
 
           directionsDisplay.setDirections(response);
