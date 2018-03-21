@@ -6,7 +6,6 @@ function MainCtrl($rootScope, User,$auth, $state, $timeout, $scope) {
   // $scope.navigatebuttons
   const vm = this;
   vm.flashMessage = null;
-  vm.bottomnav = null;
   vm.isAuthenticated = $auth.isAuthenticated;
 
   // This changeClass function enables the mobile burger menu in index.html
@@ -24,21 +23,8 @@ function MainCtrl($rootScope, User,$auth, $state, $timeout, $scope) {
     }
 
   };
-  //
 
-  // Open User Navigation Options
-  function openNav() {
-    if ($scope.bottomnav === 'active-bottom-nav') {
-      $scope.bottomnav = '';
-      $scope.chevron = 'chevron-image';
-      console.log($scope.chevron);
-    } else {
-      $scope.bottomnav = 'active-bottom-nav';
-      $scope.chevron = 'chevron-image active-chevron';
-      console.log($scope.chevron);
-    }
-  }
-  this.openNav = openNav;
+
 
   function logout(){
     $rootScope.$broadcast('flashMessage', {
@@ -87,9 +73,7 @@ function MainCtrl($rootScope, User,$auth, $state, $timeout, $scope) {
   //here I want to save the lat and lng as seperate variales.
   //then I want to save them as the value in the form with an ng-m
 
-  // Bounce menu when page loads
-  $timeout(() => vm.bottomnav = 'bottom-nav animated infinite bounce', 1500);
-  $timeout(() => vm.bottomnav = 'bottom-nav', 3500);
+
 }
 
 

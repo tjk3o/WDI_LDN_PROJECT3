@@ -67,16 +67,6 @@ body {
   }
 }
 
-.shadowfilter {
-	-webkit-filter: drop-shadow(0px 0px 0px rgba(255,255,255,2));
-	-webkit-transition: all 0.5s linear;
-	-o-transition: all 0.5s linear;
-	transition: all 0.5s linear;
-
-}.shadowfilter:hover {
-	-webkit-filter: drop-shadow(0px 0px 12px rgba(0, 231, 255, 0.2));
-}
-
   nav {
     height: 90px;
     border-bottom: 1px solid #ccc;
@@ -118,11 +108,15 @@ body {
   .bottomnav {
     width: 100vw;
     height: auto;
-
   }
 
-  .navigatebuttons {
+  // Hides the buttons on page load
+  .navigatebuttonshidden {
     display: none;
+  }
+  // Shows the buttons when the menu is accessed
+  .navigatebuttonsshown {
+    display: block;
   }
 
   .chevron-image {
@@ -202,6 +196,35 @@ body {
     color: #444;
     background-color: #111;
     line-height: 8em;
+  }
+
+  .loadingModal{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 999;
+    position: fixed; /* Stay in place */
+    left: 0;
+    top: 0;
+
+    .innerModal{
+      height: 50%;
+      width: 50%;
+      margin: 200px auto;
+
+      p{
+        font-size: 30px;
+        color: #fff;
+        text-align: center;
+      }
+
+      img{
+        display: block;
+        margin: 0 auto;
+      }
+
+    }
+
   }
 }
 
