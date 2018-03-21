@@ -1,11 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch');
+
+// REENA'S STYLING STARTS
 body {
-  text-align: center;
+  font-family: 'Cabin Sketch', cursive;
+
+  h1 {
+    font-size: 50px;
+  }
+
+  h2 {
+    font-size: 45px;
+    padding-top: 0px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+
+
+  .user-forms {
+    border: 0px solid #ccc;
+    margin: 0 auto;
+    width: 500px;
+    height: 100%;
+    background-color: #fff;
+    padding: 20px;
+  }
+
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-size: 16px;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+  font-size: 16px;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+  font-size: 16px;
+  }
 
   nav {
     height: 90px;
+    border-bottom: 1px solid #ccc;
   }
 
+  // REENA'S STYLING ENDS
+
+
+
   .bottom-nav {
+    text-align: center;
     width: 100%;
     height: 50px;
     position: fixed;
@@ -19,6 +60,7 @@ body {
   }
 
   .active-bottom-nav {
+    text-align: center;
     width: 100%;
     height: 400px;
     position: fixed;
@@ -114,7 +156,7 @@ body {
   }
 
   .column {
-    text-align: center;
+
     padding-bottom: 10px;
     padding-bottom: 25px;
   }
@@ -139,13 +181,6 @@ body {
 
 
 
-
-h1 {
-  font-family: 'Cabin Sketch', cursive;
-  padding-left: 10px;
-  font-size: 50px;
-}
-
 // Animation for flash messages to slide in from right and then slide back right off the screen
 @keyframes slide {
   0% {
@@ -168,6 +203,7 @@ h1 {
   }
 }
 
+// MOBILE
 // Media queries for optimizing layout based on screen size
 @media (max-width: 768px) {
   .google-map {
@@ -187,8 +223,14 @@ h1 {
     position: fixed;
     left: 0;
     bottom: 25px;
-    width: 100%;
+    width: 400px;
   }
+
+  .user-forms {
+    width: 400px;
+  }
+
+
 }
 
 @media (min-width: 769px) {
@@ -211,4 +253,6 @@ h1 {
     bottom: 25px;
     width: 100%;
   }
+
+
 }

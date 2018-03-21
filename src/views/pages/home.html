@@ -10,7 +10,6 @@
 
 
 
-
 <!-- ng-disabled="pagesHome.travelMode" -->
 
 <a ng-click="main.openNav()">
@@ -63,6 +62,7 @@
           <button class="bottom-nav-button" value="DRIVING" ng-click="pagesHome.setTravelMode('DRIVING')" ng-disabled="pagesHome.travelMode">Driving</button>
         </div>
       </div>
-      <a ng-click="myvalue = myvalue == true ? false : true;" class="button is-black is-medium">Show interactive directions</a>
+
+      <a ng-click="myvalue = myvalue == true ? false : true;" class="button is-primary is-medium">Show interactive directions</a>
       <div class="directions-box" ng-show="myvalue" id="bottom-panel"></div>
     </form>
