@@ -31,8 +31,13 @@ function PagesHomeCtrl($scope, $auth, User) {
   vm.userCurrentAddress = '';
   //This function gets the users current position and sets it as the origin
   function userCurrentPosition(){
+    openNav();
     vm.loading = true;
     //The below function locates your current position in to lat and lng variables.
+    var ops = {
+      timeout: 10000,
+      maximumAge: 0
+    };
     navigator.geolocation.getCurrentPosition(pos => {
       console.log(pos);
       const userCurrentLat = pos.coords.latitude;
@@ -54,17 +59,37 @@ function PagesHomeCtrl($scope, $auth, User) {
           }
         } else {
           console.log('Geocoder failed due to: ' + status);
+
         }
       });
       //then I need to input the origin in the the google-maps directive
     }, err => {
-      console.log(err.code, err.message);
-    });
+      if (err.TIMEOUT) {
+        vm.loading = false;
+        $scope.$apply();
+        console.log('TIMEOUT');
+        openNav();
+      }
+    }, ops);
 
     //here I want to save the lat and lng as seperate variales.
     //then I want to save them as the value in the form with an ng-m
   }
   vm.userCurrentPosition = userCurrentPosition;
+
+  // Home Page Navigation
+  function openNav() {
+    if ($scope.bottomnav === 'active-bottom-nav') {
+      $scope.bottomnav = '';
+      $scope.chevron = 'fas fa-chevron-up';
+      console.log($scope.chevron);
+    } else {
+      $scope.bottomnav = 'active-bottom-nav';
+      $scope.chevron = 'fas fa-chevron-up active-chevron';
+      console.log($scope.chevron);
+    }
+  }
+  this.openNav = openNav;
 
 
 

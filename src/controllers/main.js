@@ -23,19 +23,8 @@ function MainCtrl($rootScope, User,$auth, $state, $timeout, $scope) {
   };
   //
 
-  // Open User Navigation Options
-  function openNav() {
-    if ($scope.bottomnav === 'active-bottom-nav') {
-      $scope.bottomnav = '';
-      $scope.chevron = 'fas fa-chevron-up';
-      console.log($scope.chevron);
-    } else {
-      $scope.bottomnav = 'active-bottom-nav';
-      $scope.chevron = 'fas fa-chevron-up active-chevron';
-      console.log($scope.chevron);
-    }
-  }
-  this.openNav = openNav;
+  // Open User Navigation Options WAS HERE
+
 
   function logout(){
     $rootScope.$broadcast('flashMessage', {
