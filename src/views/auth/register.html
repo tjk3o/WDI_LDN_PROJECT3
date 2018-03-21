@@ -3,46 +3,49 @@
     <h2 class="has-text-centered">register if you crave often...</h2>
     <div class="columns">
       <div class="column">
-        <form ng-submit="authRegister.handleSubmit()" class="user-forms">
+        <form name="authRegister.form" ng-submit="authRegister.handleSubmit()" class="user-forms" novalidate>
           <div class="field">
             <label for="name"><h3>Name</h3></label>
               <div class="control has-icons-left">
-                <input class="input is-medium" placeholder="Name" name="name" ng-model="authRegister.user.name" />
+                <input required class="input is-medium" placeholder="Name" name="name" ng-model="authRegister.user.name" />
                 <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+                <div ng-messages="authRegister.form.name.$error" ng-if="authRegister.form.name.$dirty || authRegister.form.$submitted">
+                  <div ng-message="required">Please fill in this field</div>
+                </div>
               </div>
           </div>
           <div class="field">
             <label for="email"><h3>Email</h3></label>
               <div class="control has-icons-left">
-                <input class="input is-medium" placeholder="Email" name="email" ng-model="authRegister.user.email" />
+                <input required class="input is-medium" placeholder="Email" name="email" ng-model="authRegister.user.email" />
                 <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
               </div>
           </div>
           <div class="field">
             <label for="home"><h3>Home Address</h3></label>
               <div class="control has-icons-left">
-                <input google-auto-complete class="input is-medium" placeholder="home address" name="home" ng-model="authRegister.user.home" />
+                <input required google-auto-complete class="input is-medium" placeholder="home address" name="home" ng-model="authRegister.user.home" />
                 <span class="icon is-small is-left"><i class="fas fa-home"></i></span>
               </div>
           </div>
           <div class="field">
             <label for="work"><h3>Work Address</h3></label>
               <div class="control has-icons-left">
-                <input google-auto-complete class="input is-medium" placeholder="work address" name="work" ng-model="authRegister.user.work" />
+                <input required google-auto-complete class="input is-medium" placeholder="work address" name="work" ng-model="authRegister.user.work" />
                 <span class="icon is-small is-left"><i class="fas fa-building"></i></span>
               </div>
           </div>
           <div class="field">
             <label for="password"><h3>Password</h3></label>
               <div class="control has-icons-left">
-                <input type="password" class="input is-medium" placeholder="Password" name="password" ng-model="authRegister.user.password" />
+                <input required type="password" class="input is-medium" placeholder="Password" name="password" ng-model="authRegister.user.password" />
                 <span class="icon is-small is-left"><i class="fas fa-key"></i></span>
               </div>
           </div>
           <div class="field">
             <label for="passwordConfirmation"><h3>Password Confirmation</h3></label>
               <div class="control has-icons-left">
-                <input type="password" class="input is-medium" placeholder="Password Confirmation" name="passwordConfirmation" ng-model="authRegister.user.passwordConfirmation" />
+                <input required type="password" class="input is-medium" placeholder="Password Confirmation" name="passwordConfirmation" ng-model="authRegister.user.passwordConfirmation" />
                 <span class="icon is-small is-left"><i class="fas fa-key"></i></span>
               </div>
           </div>

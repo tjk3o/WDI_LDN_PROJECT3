@@ -1,4 +1,5 @@
 import angular from 'angular';
+import 'angular-messages';
 
 // Config
 import Router from './config/router';
@@ -30,7 +31,7 @@ import User from './services/user';
 
 
 
-angular.module('crave',['ui.router', 'satellizer'])
+angular.module('crave',['ui.router', 'satellizer', 'ngMessages'])
   .config(Router)
   .config(Auth)
   .controller('MainCtrl', MainCtrl)
