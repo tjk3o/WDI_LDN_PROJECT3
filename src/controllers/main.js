@@ -8,6 +8,8 @@ function MainCtrl($rootScope, User,$auth, $state, $timeout, $scope) {
   vm.flashMessage = null;
   vm.isAuthenticated = $auth.isAuthenticated;
 
+  vm.formattedOrigin = '';
+
   // This changeClass function enables the mobile burger menu in index.html
   $scope.class = '';
   $scope.bottomnav = '';
@@ -56,6 +58,7 @@ function MainCtrl($rootScope, User,$auth, $state, $timeout, $scope) {
       if (status === 'OK') {
         if (results[0]) {
           this.userCurrentAddress = results[0].formatted_address;
+          vm.formattedOrigin = results[0].formatted_address;
 
           console.log('current address has changed to:' + this.userCurrentAddress);
         } else {

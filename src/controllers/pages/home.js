@@ -10,7 +10,7 @@ function PagesHomeCtrl($scope, $auth, User, $timeout) {
   vm.bottomnav = null;
   vm.foodType = '';
   vm.loading = false;
-
+  vm.navigationStep = '0';
 
 
   //This function sets the users walking or driving travel mode
@@ -100,8 +100,6 @@ function PagesHomeCtrl($scope, $auth, User, $timeout) {
   vm.openNav = openNav;
 
 
-
-
   //This function pulls the current users home address from database when the home button is clicked
   function pullUserHomeOrWork(place){
     vm.userPlace = '';
@@ -125,6 +123,29 @@ function PagesHomeCtrl($scope, $auth, User, $timeout) {
   }
 
   vm.pullUserHomeOrWork = pullUserHomeOrWork;
+
+  // Change steps in the navigation
+  function originNextStep() {
+    console.log('Clicked');
+    $scope.originStep = 'navigatebuttonshidden';
+    $scope.destinationStep = 'navigatebuttonsshown';
+  }
+
+  function destinationNextStep() {
+    console.log('Clicked');
+    $scope.destinationStep = 'navigatebuttonshidden';
+    $scope.emotionStep = 'navigatebuttonsshown';
+  }
+
+  function emotionNextStep() {
+    console.log('Clicked');
+    $scope.emotionStep = 'navigatebuttonshidden';
+    $scope.travelStep = 'navigatebuttonsshown';
+  }
+
+  vm.originNextStep = originNextStep;
+  vm.destinationNextStep = destinationNextStep;
+  vm.emotionNextStep = emotionNextStep;
 
 
   // Bounce menu when page loads
