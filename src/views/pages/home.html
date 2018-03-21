@@ -63,18 +63,19 @@
           ng-disabled="pagesHome.foodType">Hardworking
           </button>
         </div>
-        <!-- Turn by turn -->
-        <div ng-if="pagesHome.origin && pagesHome.destination && pagesHome.foodType && !travelMode" class="column">
+        <!-- Travel mode -->
+        <div ng-if="pagesHome.origin && pagesHome.destination && pagesHome.foodType && !pagesHome.travelMode" class="column">
           <h3 class="bottom-nav-text">How will you get there?</h3>
           <button class="bottom-nav-button" value="WALKING" ng-click="pagesHome.setTravelMode('WALKING')" ng-disabled="pagesHome.travelMode">Walking</button>
           <button class="bottom-nav-button" value="DRIVING" ng-click="pagesHome.setTravelMode('DRIVING')" ng-disabled="pagesHome.travelMode">Driving</button>
         </div>
-
       </div>
+
+
+        <!-- Turn by turn -->
       <div class="column">
+        <a ng-click="myvalue = myvalue == true ? false : true;" class="button is-primary is-medium">Show interactive directions</a>
+        <div class="directions-box" ng-show="myvalue" id="bottom-panel"></div>
+      </div>
 
-
-
-      <a ng-if="pagesHome.origin && pagesHome.destination" ng-click="myvalue = myvalue == true ? false : true;" class="button is-primary is-medium">Show interactive directions</a>
-      <div ng-if="pagesHome.origin" class="directions-box" ng-show="myvalue" id="bottom-panel"></div>
     </form>

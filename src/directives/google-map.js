@@ -22,23 +22,23 @@ function googleMap() {
         center: $scope.center,
         styles: [
           {
-            "featureType": "all",
-            "elementType": "all",
-            "stylers": [
+            'featureType': 'all',
+            'elementType': 'all',
+            'stylers': [
               {
-                "invert_lightness": true
+                'invert_lightness': true
               },
               {
-                "saturation": 10
+                'saturation': 10
               },
               {
-                "lightness": 30
+                'lightness': 30
               },
               {
-                "gamma": 0.5
+                'gamma': 0.5
               },
               {
-                "hue": "#435158"
+                'hue': '#435158'
               }
             ]
           }
@@ -91,7 +91,7 @@ function googleMap() {
           // }); //end
 
           // beginning of this form
-          console.log(response.routes[0].legs[0].steps);
+          // console.log(response.routes[0].legs[0].steps);
 
           // response.routes[0].legs[0].steps.map(step => {
 
