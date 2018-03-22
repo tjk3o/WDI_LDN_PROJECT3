@@ -1,11 +1,28 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch');
 
-// REENA'S STYLING STARTS
 body {
   font-family: 'Cabin Sketch', sans-serif;
 
-  img.emotion {
-    max-width: 200px;
+  // To move registration page/login page icons behind bottom nav
+  .icon.is-small.is-left {
+    z-index: 0;
+  }
+  .emotion {
+    width: 200px;
+    height: 200px;
+    &:hover {
+      border: 10px solid #f1B277;
+      border-radius: 50%;
+    }
+    &:active {
+      border: 10px solid #f1B277;
+      border-radius: 50%;
+    }
+  }
+
+  .chosen-emotion {
+    border: 10px solid #f1B277;
+    border-radius: 50%;
   }
 
   a:hover {
@@ -123,7 +140,6 @@ body {
 .pac-item {
   color: #666;
 }
-  // REENA'S STYLING ENDS
 
   // Directions styling
 
@@ -149,7 +165,7 @@ body {
     height: 40px;
     position: fixed;
     z-index: 3;
-    bottom: 20px;
+    bottom: 0;
     left: 0;
     background-color: #111;
     color: white;
@@ -163,12 +179,13 @@ body {
     height: 50vh;
     position: fixed;
     z-index: 3;
-    bottom: 5vh;
+    bottom: 0;
     left: 0;
     background-color: #111;
     color: white;
     overflow-x: hidden;
     transition: 0.5s;
+    overflow: scroll;
   }
 
   .bottomnav {
@@ -230,9 +247,7 @@ body {
     border-radius: 3px;
     width: 50%;
     height: 50px;
-    margin: 0 auto;
-    // padding: 10px 6px;
-    margin: 20px 0;
+    margin: 5px auto;
     border: 0px;
     position: relative;
     top: 30px;
@@ -382,8 +397,8 @@ body {
     width: 400px;
   }
 
-  .user-forms {
-    width: 400px;
+  .user-forms, input {
+    width: 90% !important;
   }
 
   .edit_image {
@@ -393,7 +408,7 @@ body {
     display: block;
   }
 
-  .emotion_icons {
+  .emotion {
     max-height: 100px;
     max-width: 100px;
   }
@@ -425,6 +440,13 @@ and (orientation : portrait) {
     display: block;
     height: calc(100vh - 195px);
   }
+  .user-forms, input {
+    width: 100% !important;
+  }
+
+  .edit_profile {
+    width: 90%;
+  }
 }
 
 // iPhone 6
@@ -436,6 +458,12 @@ and (orientation : portrait) {
       display: block;
       height: calc(100vh - 195px);
     }
+    .user-forms, input {
+      width: 100% !important;
+    }
+    .edit_profile {
+      width: 90%;
+    }
   }
 
 // iPhone X
@@ -444,12 +472,15 @@ and (orientation : portrait) {
   and (max-device-width : 812px)
   and (-webkit-device-pixel-ratio : 3)
   and (orientation : portrait) {
-    img.logo {
-      height: 50px;
-    }
     div.google-map {
       display: block;
       height: calc(100vh - 230px);
+    }
+    .user-forms, input {
+      width: 100% !important;
+    }
+    .edit_profile {
+      width: 90%;
     }
   }
 
@@ -462,6 +493,12 @@ and (orientation : portrait) {
     display: block;
     height: calc(100vh - 193px);
   }
+  .user-forms, input {
+    width: 100% !important;
+  }
+  .edit_profile {
+    width: 90%;
+  }
 }
 
 // iPad
@@ -473,6 +510,12 @@ and (-webkit-min-device-pixel-ratio: 2) {
   div.google-map {
     display: block;
     height: calc(100vh - 150px);
+  }
+  .user-forms, input {
+    width: 100% !important;
+  }
+  .edit_profile {
+    width: 90%;
   }
 }
 

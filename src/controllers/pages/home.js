@@ -8,7 +8,7 @@ function PagesHomeCtrl($scope, $auth, User, $timeout) {
   vm.destination = 'oxford street, london';
   vm.travelMode = '';
   vm.bottomnav = null;
-  vm.foodType = '';
+  vm.foodType = null;
   vm.loading = false;
   vm.navigationStep = '0';
   // vm.gestureHandling ='cooperative';
@@ -23,9 +23,31 @@ function PagesHomeCtrl($scope, $auth, User, $timeout) {
 
   // SETFOOD TYPE FUNCTION
   function setFoodType(type) {
-    vm.foodType = type;
     console.log('Show ' + type + ' type of restaurants');
+    if(type === 'kebab') {
+      $scope.hammered = 'chosen-emotion';
+      $scope.hungover = '';
+      $scope.hangry = '';
+      $scope.hardworking = '';
+    } else if(type === 'cafe') {
+      $scope.hammered = '';
+      $scope.hungover = 'chosen-emotion';
+      $scope.hangry = '';
+      $scope.hardworking = '';
+    } else if(type === 'fastfood') {
+      $scope.hammered = '';
+      $scope.hungover = '';
+      $scope.hangry = 'chosen-emotion';
+      $scope.hardworking = '';
+    } else {
+      $scope.hammered = '';
+      $scope.hungover = '';
+      $scope.hangry = '';
+      $scope.hardworking = 'chosen-emotion';
+    }
+    vm.foodType = type;
   }
+
   vm.setFoodType = setFoodType;
 
   //CURRENT LOCATION FUNCTION

@@ -63,31 +63,47 @@
           <h3 class="bottom-nav-text">What's your emotional state right now? </h3>
           <div class="columns is-mobile is-multiline">
 
-            <div class="column is-one-quarter-mobile">
+            <div class="column is-half-mobile">
+              <img
+              ng-class="hammered"
+              ng-click="pagesHome.setFoodType('kebab')"
+              ng-disabled="pagesHome.foodType"
+              class="emotion"
+              src="/assets/images/vomit_orange.png"/>
               <h6>Hammered</h6>
-              <img class="emotion" src="/assets/images/vomit_orange.png" ng-click="pagesHome.setFoodType('kebab')" ng-disabled="pagesHome.foodType"/>
               <h6 class="has-text-grey">Kebabs</h6>
             </div>
 
-            <div class="column is-one-quarter-mobile">
+            <div class="column is-half-mobile">
+              <img
+              ng-class="hungover"
+              ng-click="pagesHome.setFoodType('cafe')"
+              ng-disabled="pagesHome.foodType"
+              class="emotion"
+              src="/assets/images/hungover_orange.png"/>
               <h6>Hungover</h6>
-              <img class="emotion" src="/assets/images/hungover_orange.png" ng-click="pagesHome.setFoodType('cafe')"
-
-              ng-disabled="pagesHome.foodType"/>
               <h6 class="has-text-grey">Breakfast</h6>
             </div>
 
-            <div class="column is-one-quarter-mobile">
+            <div class="column is-half-mobile">
+              <img
+              ng-class="hangry"
+              ng-click="pagesHome.setFoodType('fastfood')"
+              ng-disabled="pagesHome.foodType"
+              class="emotion"
+              src="/assets/images/hangry_orange.png"/>
               <h6>Hangry</h6>
-              <img class="emotion" src="/assets/images/hangry_orange.png" ng-click="pagesHome.setFoodType('fastfood')"
-              ng-disabled="pagesHome.foodType"/>
               <h6 class="has-text-grey">Fastfood</h6>
             </div>
 
-            <div class="column is-one-quarter-mobile">
+            <div class="column is-half-mobile">
+              <img
+              ng-class="hangry"
+              ng-click="pagesHome.setFoodType('chinese')"
+              ng-disabled="pagesHome.foodType"
+              class="emotion"
+              src="/assets/images/working_orange.png"/>
               <h6>Hardworking</h6>
-              <img class="emotion" src="/assets/images/working_orange.png" ng-click="pagesHome.setFoodType('chinese')"
-              ng-disabled="pagesHome.foodType"/>
               <h6 class="has-text-grey">Chinese food</h6>
             </div>
           </div>
