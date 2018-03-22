@@ -7,10 +7,10 @@
         <img class="edit_image" src="/assets/images/vomit_orange.png" />
         <div class="edit_profile">
               <ul>
-                <li><p><strong>Crave username:</strong> {{ authShow.user.name }}</p></li>
-                <li><p><strong>Email:</strong> {{ authShow.user.email }}</p></li>
-                <li><p><strong>Home Address:</strong> {{ authShow.user.home }}</p></li>
-                <li><p><strong>Work Address:</strong> {{ authShow.user.work }}</p></li>
+                <li><p><strong>Crave username:</strong></br>{{ authShow.user.name }}</p></li>
+                <li><p><strong>Email:</strong></br>{{ authShow.user.email }}</p></li>
+                <li><p><strong>Home Address:</strong></br>{{ authShow.user.home }}</p></li>
+                <li><p><strong>Work Address:</strong></br>{{ authShow.user.work }}</p></li>
               </ul>
               <a class="button orange profile_button" ui-sref="authEdit" ng-if="main.isAuthenticated()">Edit Profile</a>
           </div>
