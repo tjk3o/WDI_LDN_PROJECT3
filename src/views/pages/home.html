@@ -32,7 +32,7 @@
           <h5 class="bottom-nav-text">OR</h5>
           <h5 class="bottom-nav-text">Enter your current location below</h5>
 
-          <input google-auto-complete type="text" placeholder="Enter an origin location" ng-model="pagesHome.origin">
+          <input class="bottom-nav-input" google-auto-complete type="text" placeholder="Enter an origin location" ng-model="pagesHome.origin">
             <!-- Next button moves user to next step in navigation choice -->
 
           <button ng-click="pagesHome.originNextStep()" class="bottom-go-button">
@@ -73,13 +73,13 @@
               <img class="image is-128x128 emotion_icons" src="/assets/images/hungover_orange.png" ng-click="pagesHome.setFoodType('cafe')"
 
             <div class="column is-one-quarter-mobile">
-              <h3>Hammered</h3>
+              <h6>Hammered</h6>
               <img class="" src="/assets/images/vomit_orange.png" ng-click="pagesHome.setFoodType('kebab')" ng-disabled="pagesHome.foodType"/>
-              <h3 class="has-text-grey">(feed me kebabs)</h3>
+              <h6 class="has-text-grey">Kebabs</h6>
             </div>
 
             <div class="column is-one-quarter-mobile">
-              <h3>Hungover</h3>
+              <h6>Hungover</h6>
               <img class="" src="/assets/images/hungover_orange.png" ng-click="pagesHome.setFoodType('cafe')"
 
               ng-disabled="pagesHome.foodType"/>
@@ -93,7 +93,7 @@
               <img class="image is-128x128 emotion_icons" src="/assets/images/hangry_orange.png" ng-click="pagesHome.setFoodType('fastfood')"
 
             <div class="column is-one-quarter-mobile">
-              <h3>Hangry</h3>
+              <h6>Hangry</h6>
               <img class="" src="/assets/images/hangry_orange.png" ng-click="pagesHome.setFoodType('fastfood')"
               ng-disabled="pagesHome.foodType"/>
               <h6 class="has-text-grey">Fastfood</h6>
@@ -106,7 +106,7 @@
               <img class="image is-128x128 emotion_icons" src="/assets/images/working_orange.png" ng-click="pagesHome.setFoodType('chinese')"
 
             <div class="column is-one-quarter-mobile">
-              <h3>Hardworking</h3>
+              <h6>Hardworking</h6>
               <img class="" src="/assets/images/working_orange.png" ng-click="pagesHome.setFoodType('chinese')"
               ng-disabled="pagesHome.foodType"/>
               <h6 class="has-text-grey">Chinese food</h6>
