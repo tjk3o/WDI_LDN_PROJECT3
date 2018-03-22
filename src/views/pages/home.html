@@ -18,14 +18,14 @@
 
     <form ng-class="navigatebuttons" class="navigationhidden">
       <h2>Plan a journey</h2>
-      <p>{{pagesHome.unsuccessfulLocateMessage}}</p>
+      <p ng-class="geosuccess">{{pagesHome.unsuccessfulLocateMessage}}{{ pagesHome.successfulLocateMessage }}</p>
       <div class="columns">
 
         <!-- Origin -->
         <div ng-class="originStep" class="column">
-          <h3 class="home_buttons bottom-nav-text">Where are you starting?</h3>
+          <h3 ng-hide="pagesHome.successfulLocateMessage" class="home_buttons bottom-nav-text">Where are you starting?</h3>
 
-          <button class="button bottom-nav-button" ng-click="pagesHome.userCurrentPosition()">Use Current Location
+          <button class="button bottom-nav-button" ng-click="pagesHome.userCurrentPosition()" ng-hide="pagesHome.successfulLocateMessage">Use Current Location
           </button>
 
           <h5 class="bottom-nav-text">{{pagesHome.userCurrentAddress}}</h5>
@@ -44,13 +44,13 @@
         <!-- Destination -->
         <div ng-class="destinationStep" class="column navigationhidden">
           <h3 class="bottom-nav-text">Where are going?</h3>
-          <button class="bottom-nav-button" ng-show="main.isAuthenticated()" ng-click="pagesHome.pullUserHomeOrWork('home')">Home</button>
-          <button class="bottom-nav-button" ng-show="main.isAuthenticated()" ng-click="pagesHome.pullUserHomeOrWork('work')">Work</button>
-          <p>OR</p>
-
           <div class="bottom-nav-input">
             <input google-auto-complete type="text" placeholder="Enter a destination location" ng-model="pagesHome.destination">
           </div>
+          <p ng-show="main.isAuthenticated()">OR</p>
+          <button class="bottom-nav-button" ng-show="main.isAuthenticated()" ng-click="pagesHome.pullUserHomeOrWork('home')">Home</button>
+          <button class="bottom-nav-button" ng-show="main.isAuthenticated()" ng-click="pagesHome.pullUserHomeOrWork('work')">Work</button>
+
 
           <!-- Next button moves user to next step in navigation choice -->
           <button ng-click="pagesHome.destinationNextStep()" class="bottom-go-button">

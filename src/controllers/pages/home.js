@@ -31,6 +31,7 @@ function PagesHomeCtrl($scope, $auth, User, $timeout) {
   //CURRENT LOCATION FUNCTION
   vm.userCurrentAddress = '';
   vm.unsuccessfulLocateMessage = '';
+  vm.successfulLocateMessage = '';
   //This function gets the users current position and sets it as the origin
   function userCurrentPosition(){
     openNav();
@@ -50,7 +51,7 @@ function PagesHomeCtrl($scope, $auth, User, $timeout) {
       const geocoder = new google.maps.Geocoder;
       geocoder.geocode({'location': latLng}, function(results, status) {
         if (status === 'OK') {
-          vm.unsuccessfulLocateMessage = 'We\'ve located you!';
+          vm.successfulLocateMessage = 'We\'ve located you!';
           openNav();
           if (results[0]) {
             vm.userCurrentAddress = results[0].formatted_address;
@@ -130,6 +131,7 @@ function PagesHomeCtrl($scope, $auth, User, $timeout) {
     console.log('Clicked');
     $scope.originStep = 'navigationhidden';
     $scope.destinationStep = 'navigationshown';
+    $scope.geosuccess = 'navigationhidden';
   }
 
   function destinationNextStep() {
