@@ -4,15 +4,15 @@
     <h3 class="has-text-centered">update your profile page</h3>
     <div class="columns">
       <div class="column">
-
+        <img class="edit_image" src="/assets/images/vomit_orange.png" />
         <div class="edit_profile">
               <ul>
-                <li>Name: {{ authShow.user.name }}</li>
-                <li>Email: {{ authShow.user.email }}</li>
-                <li>Home Address: {{ authShow.user.home }}</li>
-                <li>Work Address: {{ authShow.user.work }}</li>
+                <li><p><strong>Crave username:</strong> {{ authShow.user.name }}</p></li>
+                <li><p><strong>Email:</strong> {{ authShow.user.email }}</p></li>
+                <li><p><strong>Home Address:</strong> {{ authShow.user.home }}</p></li>
+                <li><p><strong>Work Address:</strong> {{ authShow.user.work }}</p></li>
               </ul>
-              <a ui-sref="authEdit" ng-if="main.isAuthenticated()">Edit Profile</a>
+              <a class="button orange profile_button" ui-sref="authEdit" ng-if="main.isAuthenticated()">Edit Profile</a>
           </div>
 
         </div>
