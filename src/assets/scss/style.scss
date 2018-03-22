@@ -4,18 +4,21 @@
 body {
   font-family: 'Cabin Sketch', sans-serif;
 
-  nav {
+  .top-nav {
+    z-index: 6;
     height: 60px;
-    background-color: #A9A9A9;
+    nav {
+      background-color: #A9A9A9;
 
-    .logo {
-      height: 60px;
     }
 
-    .navbar {
-      height: 60px;
-      z-index: 5;
+    .is-active {
+      transition: 0.5s;
     }
+  }
+
+  .logo {
+    height: 50px;
   }
 
   .user-forms {
@@ -142,7 +145,7 @@ body {
     transform: rotate(180deg);
   }
 
-  .bottom-nav-button {
+  .bottom-nav-button, .bottom-nav-next-button {
     font-family: "Roboto", cursive, sans-serif;
     font-size: 15px;
     font-weight: 400;
@@ -150,10 +153,17 @@ body {
     background-color: #a9a9a9;
     border: 2px solid #A9A9A9;
     border-radius: 3px;
-    width: 90%;
     margin: 0 auto;
     padding: 10px 6px;
     margin: 4px 0;
+  }
+
+  .bottom-nav-button {
+    width: 90%;
+  }
+
+  .bottom-nav-next-button {
+    width: 80px;
   }
 
   .bottom-nav-heading {
@@ -174,14 +184,14 @@ body {
 
   .google-map {
     width: 100%;
-    height: calc(100vh - 120px);
+    height: calc(100vh - 115px);
   }
 
   .notification {
-    height: 6.3vh;
+    height: 60px;
     line-height: 1em;
     position: absolute;
-    z-index: 1;
+    z-index: 10;
     animation-duration: 4s;
     animation-name: slide;
   }
@@ -324,7 +334,7 @@ and (orientation : portrait) {
     }
     div.google-map {
       display: block;
-      height: calc(100vh - 233px);
+      height: calc(100vh - 230px);
     }
   }
 
@@ -336,6 +346,18 @@ and (orientation : portrait) {
   div.google-map {
     display: block;
     height: calc(100vh - 193px);
+  }
+}
+
+// iPad
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait)
+and (-webkit-min-device-pixel-ratio: 2) {
+  div.google-map {
+    display: block;
+    height: calc(100vh - 150px);
   }
 }
 

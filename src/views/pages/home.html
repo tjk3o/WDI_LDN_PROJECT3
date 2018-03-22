@@ -30,7 +30,7 @@
           <h5 class="bottom-nav-text">Enter your current location below</h5>
           <input google-auto-complete type="text" placeholder="Enter an origin location" ng-model="pagesHome.origin">
             <!-- Next button moves user to next step in navigation choice -->
-          <button ng-click="pagesHome.originNextStep()" class="bottom-nav-button">
+          <button ng-click="pagesHome.originNextStep()" class="bottom-nav-next-button">
             Next
           </button>
         </div>
@@ -45,7 +45,7 @@
           placeholder="Enter a destination location"
           ng-model="pagesHome.destination">
           <!-- Next button moves user to next step in navigation choice -->
-          <button ng-click="pagesHome.destinationNextStep()" class="bottom-nav-button">
+          <button ng-click="pagesHome.destinationNextStep()" class="bottom-nav-next-button">
             Next
           </button>
         </div>
@@ -86,7 +86,7 @@
           </div>
 
           <!-- Next button moves user to next step in navigation choice -->
-          <button ng-click="pagesHome.emotionNextStep()" class="bottom-nav-button">
+          <button ng-click="pagesHome.emotionNextStep()" class="bottom-nav-next-button">
             Next
           </button>
         </div>
