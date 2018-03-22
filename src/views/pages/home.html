@@ -17,21 +17,26 @@
 </a>
 
     <form ng-class="navigatebuttons" class="navigationhidden">
-      <h3 class="subtitle">Plan a journey</h3>
+      <h2>Plan a journey</h2>
       <p>{{pagesHome.unsuccessfulLocateMessage}}</p>
       <div class="columns">
 
         <!-- Origin -->
         <div ng-class="originStep" class="column">
-          <h3 class="bottom-nav-text">Where are you starting?</h3>
-          <button class="bottom-nav-button" ng-click="pagesHome.userCurrentPosition()">Use Current Location</button>
+          <h3 class="home_buttons bottom-nav-text">Where are you starting?</h3>
+
+          <button class="button bottom-nav-button" ng-click="pagesHome.userCurrentPosition()">Use Current Location
+          </button>
+
           <h5 class="bottom-nav-text">{{pagesHome.userCurrentAddress}}</h5>
           <h5 class="bottom-nav-text">OR</h5>
           <h5 class="bottom-nav-text">Enter your current location below</h5>
+
           <input google-auto-complete type="text" placeholder="Enter an origin location" ng-model="pagesHome.origin">
             <!-- Next button moves user to next step in navigation choice -->
-          <button ng-click="pagesHome.originNextStep()" class="bottom-nav-button">
-            Next
+
+          <button ng-click="pagesHome.originNextStep()" class="bottom-go-button">
+            Next<i class="fas fa-arrow-right"></i>
           </button>
         </div>
 
@@ -41,12 +46,13 @@
           <button class="bottom-nav-button" ng-show="main.isAuthenticated()" ng-click="pagesHome.pullUserHomeOrWork('home')">Home</button>
           <button class="bottom-nav-button" ng-show="main.isAuthenticated()" ng-click="pagesHome.pullUserHomeOrWork('work')">Work</button>
           <p>OR</p>
+
           <input google-auto-complete type="text"
           placeholder="Enter a destination location"
           ng-model="pagesHome.destination">
           <!-- Next button moves user to next step in navigation choice -->
-          <button ng-click="pagesHome.destinationNextStep()" class="bottom-nav-button">
-            Next
+          <button ng-click="pagesHome.destinationNextStep()" class="bottom-go-button">
+            Next<i class="fas fa-arrow-right"></i>
           </button>
         </div>
 
@@ -57,13 +63,13 @@
 
             <div class="column is-quarter-mobile">
               <h3>i'm hammered</h3>
-              <img class="image is-128x128 emotion_icons shadowfilter" src="/assets/images/vomit_orange.png" ng-click="pagesHome.setFoodType('kebab')" ng-disabled="pagesHome.foodType"/>
-              <h3 class="has-text-grey">(feed me kebabs)</h3>
+              <span id="screen"><img class="image is-128x128 emotion_icons" src="/assets/images/vomit_orange.png" ng-click="pagesHome.setFoodType('kebab')" ng-disabled="pagesHome.foodType"/></span>
+              <h6 class="has-text-grey">(feed me kebabs)</h6>
             </div>
 
             <div class="column is-quarter-mobile">
               <h3>i'm hungover</h3>
-              <img class="image is-128x128 emotion_icons shadowfilter" src="/assets/images/hungover_orange.png" ng-click="pagesHome.setFoodType('cafe')"
+              <img class="image is-128x128 emotion_icons" src="/assets/images/hungover_orange.png" ng-click="pagesHome.setFoodType('cafe')"
               ng-disabled="pagesHome.foodType"/>
               <h6 class="has-text-grey">Breakfast</h6>
             </div>
@@ -71,7 +77,7 @@
 
             <div class="column is-quarter-mobile">
               <h3>i'm hangry</h3>
-              <img class="image is-128x128 emotion_icons shadowfilter" src="/assets/images/hangry_orange.png" ng-click="pagesHome.setFoodType('fastfood')"
+              <img class="image is-128x128 emotion_icons" src="/assets/images/hangry_orange.png" ng-click="pagesHome.setFoodType('fastfood')"
               ng-disabled="pagesHome.foodType"/>
               <h6 class="has-text-grey">Fastfood</h6>
             </div>
@@ -79,15 +85,15 @@
             <div class="column is-quarter-mobile">
               <h3>i'm hardworking today
               </h3>
-              <img class="image is-128x128 emotion_icons shadowfilter" src="/assets/images/working_orange.png" ng-click="pagesHome.setFoodType('chinese')"
+              <img class="image is-128x128 emotion_icons" src="/assets/images/working_orange.png" ng-click="pagesHome.setFoodType('chinese')"
               ng-disabled="pagesHome.foodType"/>
               <h6 class="has-text-grey">Chinese food</h6>
             </div>
           </div>
 
           <!-- Next button moves user to next step in navigation choice -->
-          <button ng-click="pagesHome.emotionNextStep()" class="bottom-nav-button">
-            Next
+          <button ng-click="pagesHome.emotionNextStep()" class="bottom-go-button">
+            Next<i class="fas fa-arrow-right"></i>
           </button>
         </div>
 
@@ -95,8 +101,8 @@
         <div ng-class="travelStep" class="column navigationhidden" ng-hide="pagesHome.travelMode">
           <div class="column">
             <h3 class="bottom-nav-text">How will you get there?</h3>
-            <button class="bottom-nav-button" value="WALKING" ng-click="pagesHome.setTravelMode('WALKING')" ng-disabled="pagesHome.travelMode">Walking</button>
-            <button class="bottom-nav-button" value="DRIVING" ng-click="pagesHome.setTravelMode('DRIVING')" ng-disabled="pagesHome.travelMode">Driving</button>
+            <button class="bottom-nav-button" value="WALKING" ng-click="pagesHome.setTravelMode('WALKING')" ng-disabled="pagesHome.travelMode">Walking <i class="fas fa-male"></i></button>
+            <button class="bottom-nav-button" value="DRIVING" ng-click="pagesHome.setTravelMode('DRIVING')" ng-disabled="pagesHome.travelMode">Taxi <i class="fas fa-taxi"></i></button>
           </div>
         </div>
 

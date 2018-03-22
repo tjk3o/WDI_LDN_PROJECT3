@@ -1,13 +1,22 @@
-<div class="container">
+<section class="section">
+  <div class="container">
+    <h2 class="has-text-centered">hiya {{ authShow.user.name }}</h2>
+    <h3 class="has-text-centered">update your profile page</h3>
+    <div class="columns">
+      <div class="column">
 
-  <h1>PROFILE PAGE</h1>
+        <div class="edit_profile">
+              <ul>
+                <li>Name: {{ authShow.user.name }}</li>
+                <li>Email: {{ authShow.user.email }}</li>
+                <li>Home Address: {{ authShow.user.home }}</li>
+                <li>Work Address: {{ authShow.user.work }}</li>
+              </ul>
+              <a ui-sref="authEdit" ng-if="main.isAuthenticated()">Edit Profile</a>
+          </div>
 
-  <ul>
-    <li>Name: {{ authShow.user.name }}</li>
-    <li>Email: {{ authShow.user.email }}</li>
-    <li>Home Address: {{ authShow.user.home }}</li>
-    <li>Work Address: {{ authShow.user.work }}</li>
-  </ul>
-  <a ui-sref="authEdit" ng-if="main.isAuthenticated()">Edit Profile</a>
-
-</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -36,6 +36,7 @@ describe('POST /register', () => {
       });
   });
 
+
   it('should return a 422 response if the password don\'t match', done => {
     const badData = Object.assign({}, userData, {password: 'bad' });
     api

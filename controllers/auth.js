@@ -7,7 +7,7 @@ function register(req,res,next) {
     .then(user => {
       const token = jwt.sign({ sub: user._id }, secret , { expiresIn: '6h'});
       res.json({
-        message: `Thank you for registering ${ user.name }`,
+        message: 'Thank you for registering',
         token
       });
     })
@@ -29,12 +29,14 @@ function login(req,res,next){
     .catch(next);
 }
 
+// PROFILE PAGE
 function show(req, res, next) {
   User.findById(req.params.id)
     .then(user => res.json(user))
     .catch(next);
 }
 
+// UPDATE PROFILE PAGE
 function update(req, res, next) {
   User.findById(req.params.id)
     .then(user => Object.assign(user, req.body))
