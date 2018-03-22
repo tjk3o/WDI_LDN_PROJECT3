@@ -4,6 +4,10 @@
 body {
   font-family: 'Cabin Sketch', sans-serif;
 
+  img.emotion {
+    max-width: 200px;
+  }
+
   a:hover {
     color: #f1B277;
   }
@@ -378,6 +382,10 @@ body {
   .emotion_icons {
     max-height: 100px;
     max-width: 100px;
+  }
+
+  .bottom-nav-input{
+    text-align: center;
   }
 
   .is-one-quarter-mobile {
