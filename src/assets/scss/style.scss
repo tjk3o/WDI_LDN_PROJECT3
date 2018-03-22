@@ -2,18 +2,11 @@
 
 // REENA'S STYLING STARTS
 body {
-  font-family: 'Cabin Sketch', cursive;
+  font-family: 'Cabin Sketch', sans-serif;
 
-  h1 {
-    font-size: 50px;
-  }
-
-  h2 {
-    font-size: 45px;
-    padding-top: 0px;
-  }
-  h3 {
-    font-size: 20px;
+  nav {
+    height: 5vh;
+    background-color: #A9A9A9;
   }
 
   .user-forms {
@@ -67,14 +60,15 @@ body {
   }
 }
 
-  nav {
-    height: 90px;
-    border-bottom: 1px solid #ccc;
-  }
-
   // REENA'S STYLING ENDS
 
   // Directions styling
+  text-align: center;
+
+  .navbar-brand, .navbarMenuHeroA {
+    height: 5vh;
+  }
+
   .adp-directions, .adp-summary {
    color: #fff !important;
    font-weight: 400;
@@ -89,10 +83,10 @@ body {
   .bottom-nav {
     text-align: center;
     width: 100%;
-    height: 50px;
+    height: 5vh;
     position: fixed;
     z-index: 3;
-    bottom: 25px;
+    bottom: 5vh;
     left: 0;
     background-color: #111;
     color: white;
@@ -103,10 +97,10 @@ body {
   .active-bottom-nav {
     text-align: center;
     width: 100%;
-    height: 400px;
+    height: 75vh;
     position: fixed;
     z-index: 3;
-    bottom: 25px;
+    bottom: 5vh;
     left: 0;
     background-color: #111;
     color: white;
@@ -114,21 +108,20 @@ body {
     transition: 0.5s;
   }
 
-  // Rotates the chevron when opening and closing the bottom nav
   .bottomnav {
     width: 100vw;
     height: auto;
   }
 
-  // Hides the buttons on page load
-  .navigatebuttonshidden {
+  .navigationhidden {
     display: none;
   }
-  // Shows the buttons when the menu is accessed
-  .navigatebuttonsshown {
+
+  .navigationshown {
     display: block;
   }
 
+  // Rotates the chevron when opening and closing the bottom nav
   .chevron-image {
     width: 15px;
     height: 15px;
@@ -163,7 +156,7 @@ body {
   }
 
   .bottom-nav-text {
-    font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     color: #4a4a4a;
     font-weight: 400;
     line-height: 2rem;
@@ -174,21 +167,14 @@ body {
     height: 40px;
   }
 
-  nav{
-    background-color: #A9A9A9;
-  }
   .google-map {
     width: 100%;
-    height: calc(100vh - 165px);
-  }
-
-  .logo{
-    text-align: center;
+    height: 84vh;
   }
 
   .notification {
-    height: 91px;
-    line-height: 3em;
+    height: 6.3vh;
+    line-height: 1em;
     position: absolute;
     z-index: 1;
     animation-duration: 4s;
@@ -196,16 +182,17 @@ body {
   }
 
   .column {
-
+    margin: 0 auto;
     padding-bottom: 10px;
     padding-bottom: 25px;
   }
 
   footer, nav.tabs {
-    height: 75px;
+    height: 10vh;
     color: #444;
     background-color: #111;
-    line-height: 8em;
+    line-height: 7.5em;
+    z-index: 5;
   }
 
   .loadingModal{
@@ -238,18 +225,6 @@ body {
   }
 }
 
-.directions-box {
-    max-height: 100%;
-    transition: 2s;
-    overflow: hidden;
-}
-
-.directions-box.hidden {
-    max-height: 0;
-}
-
-
-
 // Animation for flash messages to slide in from right and then slide back right off the screen
 @keyframes slide {
   0% {
@@ -279,7 +254,7 @@ body {
     width: 100%;
     height: 30vh;
     position: fixed;
-    // z-index: -1;
+  
   }
   .hero-foot {
     position: fixed;
@@ -299,6 +274,10 @@ body {
     width: 400px;
   }
 
+  .emotion_icons {
+    max-height: 100px;
+    max-width: 100px;
+  }
 
 }
 
@@ -307,7 +286,6 @@ body {
     width: 100%;
     height: 50vh;
     position: absolute;
-    z-index: -1;
   }
   .hero-foot {
     position: fixed;

@@ -16,7 +16,7 @@
     <img ng-class="chevron" class="chevron-image" src="/assets/images/chevron.png" alt="chevron">
 </a>
 
-    <form ng-class="navigatebuttons" class="navigatebuttonshidden">
+    <form ng-class="navigatebuttons" class="navigationhidden">
       <h3 class="subtitle">Plan a journey</h3>
       <p>{{pagesHome.unsuccessfulLocateMessage}}</p>
       <div class="columns">
@@ -36,7 +36,7 @@
         </div>
 
         <!-- Destination -->
-        <div ng-class="destinationStep" class="column navigatebuttonshidden">
+        <div ng-class="destinationStep" class="column navigationhidden">
           <h3 class="bottom-nav-text">Where are going?</h3>
           <button class="bottom-nav-button" ng-show="main.isAuthenticated()" ng-click="pagesHome.pullUserHomeOrWork('home')">Home</button>
           <button class="bottom-nav-button" ng-show="main.isAuthenticated()" ng-click="pagesHome.pullUserHomeOrWork('work')">Work</button>
@@ -51,7 +51,7 @@
         </div>
 
         <!-- Emotional state -->
-        <div ng-class="emotionStep" class="column navigatebuttonshidden">
+        <div ng-class="emotionStep" class="column navigationhidden">
           <h3 class="bottom-nav-text">What's your emotional state right now? </h3>
           <div class="columns is-mobile is-multiline">
 
@@ -65,7 +65,7 @@
               <h3>i'm hungover</h3>
               <img class="image is-128x128 emotion_icons shadowfilter" src="/assets/images/hungover_orange.png" ng-click="pagesHome.setFoodType('cafe')"
               ng-disabled="pagesHome.foodType"/>
-              <h3 class="has-text-grey">(feed me breakfast)</h3>
+              <h6 class="has-text-grey">Breakfast</h6>
             </div>
 
 
@@ -73,7 +73,7 @@
               <h3>i'm hangry</h3>
               <img class="image is-128x128 emotion_icons shadowfilter" src="/assets/images/hangry_orange.png" ng-click="pagesHome.setFoodType('fastfood')"
               ng-disabled="pagesHome.foodType"/>
-              <h3 class="has-text-grey">(feed me fastfood)</h3>
+              <h6 class="has-text-grey">Fastfood</h6>
             </div>
 
             <div class="column is-quarter-mobile">
@@ -81,7 +81,7 @@
               </h3>
               <img class="image is-128x128 emotion_icons shadowfilter" src="/assets/images/working_orange.png" ng-click="pagesHome.setFoodType('chinese')"
               ng-disabled="pagesHome.foodType"/>
-              <h3 class="has-text-grey">(feed me chinese)</h3>
+              <h6 class="has-text-grey">Chinese food</h6>
             </div>
           </div>
 
@@ -92,21 +92,17 @@
         </div>
 
         <!-- Travel mode -->
-        <div ng-class="travelStep" class="column navigatebuttonshidden" ng-hide="pagesHome.travelMode">
-          <div class="columns">
-            <div class="column">
-              <h3 class="bottom-nav-text">How will you get there?</h3>
-              <button class="bottom-nav-button" value="WALKING" ng-click="pagesHome.setTravelMode('WALKING')" ng-disabled="pagesHome.travelMode">Walking</button>
-              <button class="bottom-nav-button" value="DRIVING" ng-click="pagesHome.setTravelMode('DRIVING')" ng-disabled="pagesHome.travelMode">Driving</button>
-            </div>
+        <div ng-class="travelStep" class="column navigationhidden" ng-hide="pagesHome.travelMode">
+          <div class="column">
+            <h3 class="bottom-nav-text">How will you get there?</h3>
+            <button class="bottom-nav-button" value="WALKING" ng-click="pagesHome.setTravelMode('WALKING')" ng-disabled="pagesHome.travelMode">Walking</button>
+            <button class="bottom-nav-button" value="DRIVING" ng-click="pagesHome.setTravelMode('DRIVING')" ng-disabled="pagesHome.travelMode">Driving</button>
           </div>
         </div>
 
         <!-- Turn by turn -->
-        <div class="column">
-          <!-- <a ng-click="myvalue = myvalue == true ? false : true;" class="button is-primary is-medium">Show interactive directions</a> -->
+        <div class="column" ng-show="pagesHome.travelMode">
           <div class="directions-box" id="bottom-panel"></div>
-
         </div>
       </div>
 
