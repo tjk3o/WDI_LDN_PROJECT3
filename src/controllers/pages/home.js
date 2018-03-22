@@ -4,13 +4,14 @@ PagesHomeCtrl.$inject = ['$scope', '$auth', 'User', '$timeout'];
 function PagesHomeCtrl($scope, $auth, User, $timeout) {
 
   const vm = this;
-  vm.origin = '';
-  vm.destination = '';
+  vm.origin = 'dalston, london';
+  vm.destination = 'oxford street, london';
   vm.travelMode = '';
   vm.bottomnav = null;
   vm.foodType = '';
   vm.loading = false;
   vm.navigationStep = '0';
+  // vm.gestureHandling ='cooperative';
 
 
   //This function sets the users walking or driving travel mode
@@ -87,12 +88,12 @@ function PagesHomeCtrl($scope, $auth, User, $timeout) {
       console.log('if');
       $scope.bottomnav = '';
       $scope.chevron = 'chevron-image';
-      $scope.navigatebuttons = 'navigatebuttonshidden';
+      $scope.navigatebuttons = 'navigationhidden';
       console.log($scope.navigatebuttons);
     } else {
       console.log('else');
       $scope.bottomnav = 'active-bottom-nav';
-      $scope.navigatebuttons = 'navigatebuttonsshown';
+      $scope.navigatebuttons = 'navigationshown';
       $scope.chevron = 'chevron-image active-chevron';
       console.log($scope.navigatebuttons);
     }
@@ -127,20 +128,20 @@ function PagesHomeCtrl($scope, $auth, User, $timeout) {
   // Change steps in the navigation
   function originNextStep() {
     console.log('Clicked');
-    $scope.originStep = 'navigatebuttonshidden';
-    $scope.destinationStep = 'navigatebuttonsshown';
+    $scope.originStep = 'navigationhidden';
+    $scope.destinationStep = 'navigationshown';
   }
 
   function destinationNextStep() {
     console.log('Clicked');
-    $scope.destinationStep = 'navigatebuttonshidden';
-    $scope.emotionStep = 'navigatebuttonsshown';
+    $scope.destinationStep = 'navigationhidden';
+    $scope.emotionStep = 'navigationshown';
   }
 
   function emotionNextStep() {
     console.log('Clicked');
-    $scope.emotionStep = 'navigatebuttonshidden';
-    $scope.travelStep = 'navigatebuttonsshown';
+    $scope.emotionStep = 'navigationhidden';
+    $scope.travelStep = 'navigationshown';
   }
 
   vm.originNextStep = originNextStep;

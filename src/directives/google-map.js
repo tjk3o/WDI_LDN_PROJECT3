@@ -20,36 +20,24 @@ function googleMap() {
       const map = new google.maps.Map($element[0], {
         zoom: $scope.zoom,
         center: $scope.center,
-        gestureHandling: 'cooperative',
-        styles: [
-          {
-            'featureType': 'all',
-            'elementType': 'all',
-            'stylers': [
-              {
-                'invert_lightness': true
-              },
-              {
-                'saturation': 10
-              },
-              {
-                'lightness': 30
-              },
-              {
-                'gamma': 0.5
-              },
-              {
-                'hue': '#435158'
-              }
-            ]
-          }
-        ]
+        styles: [{
+          'featureType': 'all',
+          'elementType': 'all',
+          'stylers': [
+            { 'invert_lightness': true },
+            { 'saturation': 10 },
+            { 'lightness': 30 },
+            { 'gamma': 0.5 },
+            { 'hue': '#435158'}
+          ]
+        }]
       });
 
       const directionsService = new google.maps.DirectionsService();
       const directionsDisplay = new google.maps.DirectionsRenderer();
       const placesService = new google.maps.places.PlacesService(map);
       const directionsShow = document.getElementById('bottom-panel');
+
 
       const image = {
         url: '/assets/images/marker.gif', // url
@@ -63,6 +51,7 @@ function googleMap() {
       // let marker = new google.maps.Marker;
 
       directionsDisplay.setMap(map);
+
 
       $scope.$watch('center', () => map.setCenter($scope.center), true);
 
@@ -103,7 +92,7 @@ function googleMap() {
 
           response.routes[0].legs[0].steps.map(step => {
 
-            const steps = response.routes[0].legs[0].steps;
+            // const steps = response.routes[0].legs[0].steps;
             // const lookup = [steps[0], steps[Math.round(steps.length / 2)], steps[steps.length - 1]];
             // lookup.map(step => {
 
