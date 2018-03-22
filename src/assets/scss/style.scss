@@ -7,6 +7,11 @@ body {
   .icon.is-small.is-left {
     z-index: 0;
   }
+
+  // To restrict the witdh of the autocomplete inputs
+  input.location-input {
+    width: 50% !important;
+  }
   .emotion {
     width: 200px;
     height: 200px;
