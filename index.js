@@ -14,6 +14,8 @@ app.use(bodyParser.json());
 
 app.use('/api', router);
 
+app.use('/*', (req, res) => res.sendFile(`${__dirname}/public/index.html`));
+
 app.use((err, req,res,next) => {
   //can find the err.name and err.message by doing console.log(err)
   if (err.name === 'ValidationError') res.status(422).json({ message: err.message });

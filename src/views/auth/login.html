@@ -4,12 +4,15 @@
     <div class="columns">
       <div class="column">
 
-        <form ng-submit="authLogin.handleSubmit()" class="user-forms">
+        <form name="authLogin.form" ng-submit="authLogin.handleSubmit()" class="user-forms" novalidate>
           <div class="field">
             <label for="email">Email</label>
               <div class="control has-icons-left">
                 <input required class="input is-medium" placeholder="Email" name="email" ng-model="authLogin.credentials.email" />
                 <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+                <div ng-messages="authLogin.form.email.$error" ng-if="authLogin.form.email.$dirty || authLogin.form.$submitted">
+                  <div ng-message="required">Please fill in this field</div>
+                </div>
               </div>
           </div>
           <div class="field">
@@ -17,6 +20,9 @@
               <div class="control has-icons-left">
                 <input required type="password" class="input is-medium" placeholder="Password" name="password" ng-model="authLogin.credentials.password" />
                 <span class="icon is-small is-left"><i class="fas fa-key"></i></span>
+                <div ng-messages="authLogin.form.password.$error" ng-if="authLogin.form.password.$dirty || authLogin.form.$submitted">
+                  <div ng-message="required">Please fill in this field</div>
+                </div>
               </div>
           </div>
           <button class="button orange">Submit</button>

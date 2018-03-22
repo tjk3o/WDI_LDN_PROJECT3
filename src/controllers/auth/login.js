@@ -8,14 +8,23 @@ function AuthLoginCtrl($auth, $state, $rootScope){
   }
 
   function handleSubmit(){
+    if(this.form.$invalid) return false;
     $auth.login(this.credentials)
-      .then(() => $rootScope.$broadcast('flashMessage', {
-        type: 'success',
-        content: 'Welcome back!'
-      }))
-      .then(() => $state.go('home'));
+      .then(res => {
+        $rootScope.$broadcast('flashMessage', {
+          type: 'success',
+          content: res.data.message
+        });
+        $state.go('home');
+      })
+      .catch(err => {
+        // console.log('message sent', err);
+        $rootScope.$broadcast('flashMessage', {
+          type: 'danger',
+          content: err.data.message // this is from index.js
+        });
+      });
   }
-
   this.handleSubmit = handleSubmit;
   this.authenticate = authenticate;
 }
