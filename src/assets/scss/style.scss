@@ -4,12 +4,15 @@
 body {
   font-family: 'Cabin Sketch', sans-serif;
 
+  a:hover {
+    color: #f1B277;
+  }
+
   .top-nav {
     z-index: 6;
     height: 60px;
     nav {
       background-color: #A9A9A9;
-
     }
 
     .is-active {
@@ -382,10 +385,17 @@ body {
     max-width: 100px;
   }
 
-
+  .is-one-quarter-mobile {
+    img {
+      height: 50px;
+      width: 50px;
+      &:visited {
+        border: 5px solid red;
+        border-radius: 10px;
+      }
+    }
+  }
 }
-
-
 
 // iPhone 5
 @media only screen
