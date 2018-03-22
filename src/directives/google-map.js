@@ -20,6 +20,7 @@ function googleMap() {
       const map = new google.maps.Map($element[0], {
         zoom: $scope.zoom,
         center: $scope.center,
+        gestureHandling: 'cooperative',
         styles: [
           {
             'featureType': 'all',
