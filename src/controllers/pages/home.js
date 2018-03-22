@@ -50,6 +50,7 @@ function PagesHomeCtrl($scope, $auth, User, $timeout) {
       const geocoder = new google.maps.Geocoder;
       geocoder.geocode({'location': latLng}, function(results, status) {
         if (status === 'OK') {
+          vm.unsuccessfulLocateMessage = 'We\'ve located you!';
           openNav();
           if (results[0]) {
             vm.userCurrentAddress = results[0].formatted_address;
@@ -62,7 +63,6 @@ function PagesHomeCtrl($scope, $auth, User, $timeout) {
           }
         } else {
           console.log('Geocoder failed due to: ' + status);
-
         }
       });
     }, err => {
