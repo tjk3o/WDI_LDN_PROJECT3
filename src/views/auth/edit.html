@@ -1,21 +1,28 @@
-<div class="container">
-  <h1>PROFILE EDIT PAGE</h1>
+<section class="section">
+  <div class="container">
+    <h2 class="has-text-centered">{{ authShow.user.name }} craving deets</h2>
+    <h3 class="has-text-centered">edit your profile page</h3>
+    <div class="columns">
+      <div class="column">
+        <img class="edit_image" src="/assets/images/vomit_orange.png" />
 
-  <form ng-submit="authEdit.handleSubmit()">
-    <div class="field">
-      <label for="name">Choose a new Username:</label>
-      <input class="input" ng-model="authEdit.user.name" name="name" placeholder="Name" />
-    </div>
-    <div class="field">
-      <label for="home">Choose a new Home Address:</label>
-      <input google-auto-complete class="input" ng-model="authEdit.user.home" name="home" placeholder="72 Bellenden Road..." />
-    </div>
-    <div class="field">
-      <label for="work">Choose a new Work Address:</label>
-      <input google-auto-complete class="input" ng-model="authEdit.user.work" name="work" placeholder="72 Bellenden Road..." />
-    </div>
+          <form class="user-forms" ng-submit="authEdit.handleSubmit()">
+            <div class="field">
+              <label for="name">Choose a new Username:</label>
+              <input class="input" ng-model="authEdit.user.name" name="name" placeholder="Name" />
+            </div>
+            <div class="field">
+              <label for="home">Choose a new Home Address:</label>
+              <input google-auto-complete class="input" ng-model="authEdit.user.home" name="home" placeholder="72 Bellenden Road..." />
+            </div>
+            <div class="field">
+              <label for="work">Choose a new Work Address:</label>
+              <input google-auto-complete class="input" ng-model="authEdit.user.work" name="work" placeholder="72 Bellenden Road..." />
+            </div>
 
-    <button class="button is-primary">Submit</button>
-  </form>
-
-</div>
+            <button class="button orange profile_button">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
