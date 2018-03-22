@@ -4,13 +4,14 @@ PagesHomeCtrl.$inject = ['$scope', '$auth', 'User', '$timeout'];
 function PagesHomeCtrl($scope, $auth, User, $timeout) {
 
   const vm = this;
-  vm.origin = '';
-  vm.destination = '';
+  vm.origin = 'dalston, london';
+  vm.destination = 'oxford street, london';
   vm.travelMode = '';
   vm.bottomnav = null;
   vm.foodType = '';
   vm.loading = false;
   vm.navigationStep = '0';
+  // vm.gestureHandling ='cooperative';
 
 
   //This function sets the users walking or driving travel mode
