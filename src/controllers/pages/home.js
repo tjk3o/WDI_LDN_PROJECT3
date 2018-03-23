@@ -4,8 +4,8 @@ PagesHomeCtrl.$inject = ['$scope', '$auth', 'User', '$timeout'];
 function PagesHomeCtrl($scope, $auth, User, $timeout) {
 
   const vm = this;
-  vm.origin = 'dalston, london';
-  vm.destination = 'oxford street, london';
+  vm.origin = '123 Oxford St, Soho, London W1D 2LT, UK';
+  vm.destination = '116 Whitechapel Rd, London E1 1JE, UK';
   vm.travelMode = '';
   vm.bottomnav = null;
   vm.foodType = null;
