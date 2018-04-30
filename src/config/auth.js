@@ -1,3 +1,4 @@
+// $authProvider comes from satellizer - it can be used for oauth
 Auth.$inject = ['$authProvider'];
 
 function Auth($authProvider) {
