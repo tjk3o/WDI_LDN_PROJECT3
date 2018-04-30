@@ -1,29 +1,38 @@
 /* global google */
+
+// $auth comes from Satellizer and we use it here to check a user is authentcated
+// Scope is an object that refers to the application model. It is an execution context for expressions. Scopes are arranged in hierarchical structure which mimic the DOM structure of the application. Scopes can watch expressions and propagate events.
+// The return value of calling $timeout is a promise, which will be resolved when the delay has passed and the timeout function, if provided, is executed.
 PagesHomeCtrl.$inject = ['$scope', '$auth', 'User', '$timeout'];
 
 function PagesHomeCtrl($scope, $auth, User, $timeout) {
-
+  // vm stands for View Model but we use it for this as this is a protected word
   const vm = this;
+  // We have hardcoded origin and destination as a fallback incase the user doesn't enter a location
   vm.origin = '123 Oxford St, Soho, London W1D 2LT, UK';
   vm.destination = '116 Whitechapel Rd, London E1 1JE, UK';
   vm.travelMode = '';
+  // Setting the bottomnav to null means it will initially be closed when the hp loads
   vm.bottomnav = null;
   vm.foodType = null;
   vm.loading = false;
   vm.navigationStep = '0';
-  // vm.gestureHandling ='cooperative';
 
 
   //This function sets the users walking or driving travel mode
   function setTravelMode(mode) {
     vm.travelMode = mode;
+    // When a user selects a travelmode the bottomnav will automatically close
     openNav();
   }
   vm.setTravelMode = setTravelMode;
 
-  // SETFOOD TYPE FUNCTION
+
+
+
+  // ---- Set food type function ---- //
   function setFoodType(type) {
-    console.log('Show ' + type + ' type of restaurants');
+    // This allows us to display items related to the choice on the map but also to style the buttons so the user knows that they have selected something
     if(type === 'kebab') {
       $scope.hammered = 'chosen-emotion';
       $scope.hungover = '';
@@ -47,10 +56,12 @@ function PagesHomeCtrl($scope, $auth, User, $timeout) {
     }
     vm.foodType = type;
   }
-
   vm.setFoodType = setFoodType;
 
-  //CURRENT LOCATION FUNCTION
+
+
+
+  // ---- Current location function ---- //
   vm.userCurrentAddress = '';
   vm.unsuccessfulLocateMessage = '';
   vm.successfulLocateMessage = '';
@@ -64,14 +75,14 @@ function PagesHomeCtrl($scope, $auth, User, $timeout) {
       maximumAge: 0
     };
     navigator.geolocation.getCurrentPosition(pos => {
-      console.log(pos);
       const userCurrentLat = pos.coords.latitude;
       const userCurrentLng = pos.coords.longitude;
-      //The below changes them in to an object ready for convering them in to an address string
+      //The below changes them in to an object ready for converting them in to an address string
       const latLng = {lat: userCurrentLat, lng: userCurrentLng};
       //The below uses the latLng object and finds the formatted_address
       const geocoder = new google.maps.Geocoder;
       geocoder.geocode({'location': latLng}, function(results, status) {
+        console.log('hello');
         if (status === 'OK') {
           vm.successfulLocateMessage = 'We\'ve located you!';
           openNav();
@@ -80,51 +91,43 @@ function PagesHomeCtrl($scope, $auth, User, $timeout) {
             vm.origin = results[0].formatted_address;
             vm.loading = false;
             $scope.$apply();
-            console.log('This is your current location:' + vm.userCurrentAddress);
-          } else {
-            console.log('No results found');
           }
-        } else {
-          console.log('Geocoder failed due to: ' + status);
         }
       });
     }, err => {
       if (err.TIMEOUT) {
         vm.loading = false;
+        console.log('failed');
         openNav();
-        console.log('TIMEOUT');
         vm.unsuccessfulLocateMessage = 'Sorry, we couldn\'t locate you this time.';
         $scope.$apply();
       }
     }, ops);
-
-    //here I want to save the lat and lng as seperate variales.
-    //then I want to save them as the value in the form with an ng-m
   }
   vm.userCurrentPosition = userCurrentPosition;
 
-  // Home Page navigation open and close toggle function
+
+
+
+  // ---- Home Page nav open/close toggle function ---- //
   function openNav() {
     $scope.navigatebuttons = '';
-    console.log('clicked');
     if ($scope.bottomnav === 'active-bottom-nav') {
-      console.log('if');
       $scope.bottomnav = '';
       $scope.chevron = 'chevron-image';
       $scope.navigatebuttons = 'navigationhidden';
-      console.log($scope.navigatebuttons);
     } else {
-      console.log('else');
       $scope.bottomnav = 'active-bottom-nav';
       $scope.navigatebuttons = 'navigationshown';
       $scope.chevron = 'chevron-image active-chevron';
-      console.log($scope.navigatebuttons);
     }
   }
   vm.openNav = openNav;
 
 
-  //This function pulls the current users home address from database when the home button is clicked
+
+
+  // ---- Fetch user's home/work address from db ---- //
   function pullUserHomeOrWork(place){
     vm.userPlace = '';
     if (place === 'home'){
@@ -133,7 +136,6 @@ function PagesHomeCtrl($scope, $auth, User, $timeout) {
         .then(output => {
           vm.userPlace = output.data.home;
           vm.destination = output.data.home;
-          console.log(vm.userPlace);
         });
     } else if (place === 'work') {
       const payload = $auth.getPayload();
@@ -141,41 +143,35 @@ function PagesHomeCtrl($scope, $auth, User, $timeout) {
         .then(output => {
           vm.userPlace = output.data.work;
           vm.destination = output.data.work;
-          console.log(vm.userPlace);
         });
     }
   }
-
   vm.pullUserHomeOrWork = pullUserHomeOrWork;
 
-  // Change steps in the navigation
+  // ---- Change steps in bottomnav ---- //
   function originNextStep() {
-    console.log('Clicked');
     $scope.originStep = 'navigationhidden';
     $scope.destinationStep = 'navigationshown';
     $scope.geosuccess = 'navigationhidden';
   }
-
   function destinationNextStep() {
-    console.log('Clicked');
     $scope.destinationStep = 'navigationhidden';
     $scope.emotionStep = 'navigationshown';
   }
-
   function emotionNextStep() {
-    console.log('Clicked');
     $scope.emotionStep = 'navigationhidden';
     $scope.travelStep = 'navigationshown';
   }
-
   vm.originNextStep = originNextStep;
   vm.destinationNextStep = destinationNextStep;
   vm.emotionNextStep = emotionNextStep;
 
 
-  // Bounce menu when page loads
+  // ---- Bounce menu when page loads ---- //
+  // $timeout is like setTimeout and is used to delay functions
   $timeout(() => vm.bottomnav = 'bottom-nav animated infinite bounce', 1500);
   $timeout(() => vm.bottomnav = 'bottom-nav', 3500);
 
 }
+
 export default PagesHomeCtrl;

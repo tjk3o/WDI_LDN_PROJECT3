@@ -1,33 +1,36 @@
 /* global google */
+
+// $rootscope lets you broadcast and receive information between different files
+// $auth comes from Satellizer and we use it here to check a user is authentcated
+// $state lets you switch to a different state/view
+
 MainCtrl.$inject = ['$rootScope','User','$auth', '$state', '$timeout', '$scope'];
 
 function MainCtrl($rootScope, User,$auth, $state, $timeout, $scope) {
 
-  // $scope.navigatebuttons
   const vm = this;
   vm.flashMessage = null;
   vm.isAuthenticated = $auth.isAuthenticated;
 
   vm.formattedOrigin = '';
 
-  // This changeClass function enables the mobile burger menu in index.html
   $scope.class = '';
   $scope.bottomnav = '';
   $scope.chevron = '';
 
+  // This changeClass function enables the mobile burger menu in index.html
   $scope.changeClass = function(){
     if ($scope.class === 'is-active') {
       $scope.class = '';
-      console.log($scope.class);
     } else {
       $scope.class = 'is-active';
-      console.log($scope.class);
     }
-
   };
 
 
 
+
+  // ---- Log a user out, broadcast a flash message, and redirect them ---- //
   function logout(){
     $rootScope.$broadcast('flashMessage', {
       type: 'warning',
@@ -43,39 +46,6 @@ function MainCtrl($rootScope, User,$auth, $state, $timeout, $scope) {
   });
 
   vm.logout = logout;
-
-  //trialling something new:
-  navigator.geolocation.getCurrentPosition(pos => {
-    const userCurrentLat = pos.coords.latitude;
-    const userCurrentLng = pos.coords.longitude;
-    console.log(userCurrentLat, userCurrentLng );
-    //I now need to convert the lat and long in to an origin
-    const latLng = {lat: userCurrentLat, lng: userCurrentLng};
-    console.log(latLng);
-
-    const geocoder = new google.maps.Geocoder;
-    geocoder.geocode({'location': latLng}, function(results, status) {
-      if (status === 'OK') {
-        if (results[0]) {
-          this.userCurrentAddress = results[0].formatted_address;
-          vm.formattedOrigin = results[0].formatted_address;
-
-          console.log('current address has changed to:' + this.userCurrentAddress);
-        } else {
-          console.log('No results found');
-        }
-      } else {
-        console.log('Geocoder failed due to: ' + status);
-      }
-    });
-    //then I need to input the origin in the the google-maps directive
-  }, err => {
-    console.warn(err.code, err.message);
-  });
-
-  //here I want to save the lat and lng as seperate variales.
-  //then I want to save them as the value in the form with an ng-m
-
 
 }
 
