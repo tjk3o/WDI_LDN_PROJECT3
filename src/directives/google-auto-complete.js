@@ -13,6 +13,7 @@ function googleAutoComplete() {
         strictBounds: true
       });
 
+      // We take the place from the autocomplete function above and set the value of ngModel to be the formatted address that is returned in the place object
       autocomplete.addListener('place_changed', () => {
         const place = autocomplete.getPlace();
         ngModel.$setViewValue(place.formatted_address);
