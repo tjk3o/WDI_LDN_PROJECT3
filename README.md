@@ -10,7 +10,7 @@ For our third project, we decided to build a MEAN stack web application called "
 
 - Hammered (kebab)
 - Hungover (cafes)
-- Hardworking (takeaway)
+- Hardworking (takeaway) 
 - Hangry (fast food)
 
 ##### The app utilises the following technologies:
