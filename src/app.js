@@ -1,4 +1,5 @@
 import angular from 'angular';
+// We use it for flash messages
 import 'angular-messages';
 
 // Config
@@ -6,7 +7,9 @@ import Router from './config/router';
 import Auth from './config/auth';
 
 // Dependencies
+// ui-router offers state based routing for client-side web apps
 import '@uirouter/angularjs';
+// satellizer does the heavy lfiting for token authentication
 import 'satellizer';
 
 // Controllers
@@ -20,6 +23,7 @@ import AuthEditCtrl from './controllers/auth/edit';
 
 // Styling
 import 'bulma';
+// Our webpack is set to compile the scss into css
 import './assets/scss/style.scss';
 
 // Directives
@@ -27,6 +31,7 @@ import googleMap from './directives/google-map';
 import googleAutoComplete from './directives/google-auto-complete';
 
 // Services
+// This makes functions like findById available in the controllers
 import User from './services/user';
 
 

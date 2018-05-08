@@ -1,17 +1,16 @@
+// $http is used for making get requests, put requests etc.
 User.$inject = ['$http'];
+// This service contains functions that help us find and update users in our auth controllers
 function User($http) {
   function find() {
-    // Not sure what this get request should be
     return $http.get('/api/login');
   }
-
+  // Here we send a get request to find a user by their id
   function findById(id) {
-    // Not sure what this get request should be
     return $http.get(`/api/users/${id}`);
   }
-
+  // For example in the edit controller we use this update function to update a users record by sending a put request
   function update(user) {
-    // Not sure what this get request should be
     return $http.put(`/api/users/${user._id}`, user);
   }
 
