@@ -1,6 +1,6 @@
-# WDI_LDN_PROJECT3
+# ![image](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) WDI_LDN_PROJECT3
+
 Group MEAN stack project
-![image](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
 
 # GA WDI-32 Project 3 - CRAVE Angular Web Application
 
@@ -10,7 +10,7 @@ For our third project, we decided to build a MEAN stack web application called "
 
 - Hammered (kebab)
 - Hungover (cafes)
-- Hardworking (takeaway) 
+- Hardworking (takeaway)
 - Hangry (fast food)
 
 ##### The app utilises the following technologies:
