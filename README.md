@@ -15,26 +15,28 @@ For our third project, we decided to build a MEAN stack web application called "
 
 ##### The app utilises the following technologies:
 
-- MongoDB to store our user database/credentials.
-- Express to enable a fully RESTful register, login and profile edit/update process
 - AngularJS to allow us to use an MVC framework and updating the state without redirecting the user/reloading the page.
-- Node.js - to allow us to run our app on a local server.
-- Google Maps API - calling these main services: Directions Render, Directions Service, Places Service.
-- JSONWebToken, BCrypt and Satellizer to securely store user passwords.
-- UIRouter to allow for state changes.
-- Mocha - the test runner, Chai - for assertion libary, nyc - test coverage reporter.
 - Angular-messages to run flash messages.
-- Bluebird for Promises.
-- Bulma for styling.
-- SASS for nested styling.     
-- Body-Parser - allows you to parse form data.
-- GitHub to manage version control.
-- Trello to create, submit and manage user stories and manage workflow using Agile methodology.
-- Heroku to host our final web application.
-- Snazzy Maps for Google Map styling.
 - Balsamiq for wireframing.
+- Bluebird for Promises.
+- Body-Parser for parsing form data.
+- Bulma for styling.
+- Express to enable a fully RESTful register, login and profile edit/update process
+- GitHub to manage version control.
+- Google Maps API - calling these main services: Directions Render, Directions Service, Places Service.
+- Heroku to host our final web application.
+- JSONWebToken, BCrypt and Satellizer to securely store user passwords.
+- Mocha - the test runner, Chai - for assertion libary, nyc - test coverage reporter.
+- MongoDB to store our user database/credentials.
+- Node.js - to allow us to run our app on a local server.
+- SASS for nested styling.     
+- Snazzy Maps for Google Map styling.
+- Trello to create, submit and manage user stories and manage workflow using Agile methodology.
+- UIRouter to allow for state changes.
 
-##### The app is produced with a mobile first experience in mind, so please [visit](https://app-crave.herokuapp.com/) if you're craving for food.
+##### The app is produced with a mobile first experience in mind, so please [visit](https://app-crave.herokuapp.com/) if you're craving food.
+
+*Please be aware that Heroku apps go to sleep after 30 mins of inactivity and may take a little time to load*
 
 ---
 
