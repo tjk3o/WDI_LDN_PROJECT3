@@ -42,17 +42,45 @@ For our third project, we decided to build a MEAN stack web application called "
 
 ###### The app loads with Google Maps in view and the user's navigation menu at the bottom of the browser window, making it clear using an animation, that the user can interact with it.
 
+</br>
+
 <p align="center">
 <img src="https://i.imgur.com/HyA2Gm0.jpg" height="400">
 <img src="https://i.imgur.com/Z0DG7Kj.jpg" height="400">
 <img src="https://i.imgur.com/1WJ7vBg.png" height="400">
+</p>
 
-</p> 
+</br>
 
+###### As the app was always designed to be mobile first, we created a collapsing 'bottomnav' to discreetly hide navigation options when a user didn't need them. This was done using CSS by toggling classes on the containing div to alter it's height, the chevron image to rotate it 180deg on open and close, and the buttons to hide or show them as needed:
+
+</br>
+
+```
+function openNav() {
+  $scope.navigatebuttons = '';
+  if ($scope.bottomnav === 'active-bottom-nav') {
+    $scope.bottomnav = '';
+    $scope.chevron = 'chevron-image';
+    $scope.navigatebuttons = 'navigationhidden';
+  } else {
+    $scope.bottomnav = 'active-bottom-nav';
+    $scope.navigatebuttons = 'navigationshown';
+    $scope.chevron = 'chevron-image active-chevron';
+  }
+}
+}
+```
+
+</br>
 
 ###### The user can then choose their start point via Google geolocator, or via autocomplete, if this functionality fails.  And then choose their destination, emotional state, followed by travel mode.
 
-<p align="center"><img src="https://i.imgur.com/J1GC2uG.png" height="400"></p>
+</br>
+
+<p align="center"><img src="https://i.imgur.com/0ySkkNq.png" height="400"></p>
+
+</br>
 
 ###### We then utilise Directions Service and Directions Render, to create a polyline from the users origin/destination route and Places Service to plot, the filtered pins/places.  These are sorted by whether the restaurants are open at the time of search.
 
@@ -60,6 +88,7 @@ For our third project, we decided to build a MEAN stack web application called "
 
 ###### We then call Directions Render again, to display turn by turn instructions, which our user can also interact with and see where they are on their chosen route.
 
+</br>
 
 <p align="center">
 <img src="https://i.imgur.com/L2eHbdw.jpg" height="400">
@@ -67,11 +96,13 @@ For our third project, we decided to build a MEAN stack web application called "
 <img src="https://i.imgur.com/YGLZyKM.jpg" height="400">
 </p>
 
-
+</br>
 
 ###### For regular users of the app, they can register and create an account securely, to store their home and work address, which appear in the user's navigation panel, if logged in.
 
 ###### Also, once logged in, the user can edit their home address, work address and username at any time.
+
+</br>
 
 <p align="center">
 <img src="https://i.imgur.com/us1563V.png" height="400">
