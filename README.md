@@ -47,7 +47,7 @@ For our third project, we decided to build a MEAN stack web application called "
 <img src="https://i.imgur.com/Z0DG7Kj.jpg" height="400">
 <img src="https://i.imgur.com/1WJ7vBg.png" height="400">
 
-</p>
+</p> 
 
 
 ###### The user can then choose their start point via Google geolocator, or via autocomplete, if this functionality fails.  And then choose their destination, emotional state, followed by travel mode.
